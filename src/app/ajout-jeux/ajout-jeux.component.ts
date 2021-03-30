@@ -11,7 +11,7 @@ interface Editeur {
   nom: string;
 }
 
-interface Mecanique {
+interface Categorie {
   nom: string;
 }
 
@@ -30,7 +30,7 @@ export class AjoutJeuxComponent implements OnInit {
     {nom: '4Dados'}, {nom: '7ème Cercle'}, {nom: 'Abacus Spiele'}, {nom: 'Horreur & Post-Apocalytique'},
     {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];
 
-  mecaniques: Mecanique[] = [ {nom: 'Abstrait'}, {nom: 'Humour'}, {nom: 'Jeu de plateau'}, {nom: 'Enquêtes & Mystères'},
+  categories: Categorie[] = [ {nom: 'Abstrait'}, {nom: 'Humour'}, {nom: 'Jeu de plateau'}, {nom: 'Enquêtes & Mystères'},
     {nom: 'Antiquité'}, {nom: 'Western'}, {nom: 'Jeu de Cartes'}, {nom: 'Connaissances'},
     {nom: 'jeu de tuiles'}, {nom: 'Lettres'}, {nom: 'Politique'}, {nom: 'Dessin' }, {nom: 'Mime'},
     {nom: 'Zombies'}, {nom: 'Contes' }, {nom: 'Observation'}, {nom: 'Bande dessinée'}, {nom: 'Animaux' }, {nom: 'Affrontement'},
