@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {JeuxService} from '../jeux.service';
+import {Jeux} from '../jeux';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-liste-jeux',
@@ -7,10 +10,11 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.http.get('http://localhost:8000/jeux');
+  jeux: Observable<Jeux[]>;
+  constructor(public jeuxService: JeuxService) {
+    this.jeux = this.jeuxService.getJeuHttp();
   }
+
+  ngOnInit(): void {}
 
 }
