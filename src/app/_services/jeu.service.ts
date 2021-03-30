@@ -25,6 +25,7 @@ export class  JeuService{
     this.map = new Map();
   }
 
+
   getJeuHttp(): Observable<Jeu> {
     const url = 'http://localhost:8000/jeux';
     // tslint:disable-next-line:no-shadowed-variable
@@ -40,9 +41,9 @@ export class  JeuService{
         }),
       );
   }
-  getJeu(id: number): Jeu{
-    return this.map.get(id) as Jeu;
-  }
+  ajoutJeu(jeu: Jeu): Observable<Jeu> {
+    return this.http.post<any>(environment.apiUrl + '/jeux',
+      jeu, httpOptions);
 
   // tslint:disable-next-line:typedef
   // @ts-ignore
