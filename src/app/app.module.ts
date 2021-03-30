@@ -20,6 +20,9 @@ import { ProfileComponent } from './profile/profile.component';
 import {UserService} from './_services/user.service';
 import { LpSolverTestComponent } from './lp-solver-test/lp-solver-test.component';
 import {MarkdownModule} from 'ngx-markdown';
+import { HomeComponent } from './home/home.component';
+import {MenubarModule} from 'primeng/menubar';
+import {Menu} from "primeng/menu";
 
 registerLocaleData(localeFr, 'fr');
 
@@ -28,7 +31,8 @@ registerLocaleData(localeFr, 'fr');
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    LpSolverTestComponent
+    LpSolverTestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ registerLocaleData(localeFr, 'fr');
     MessagesModule,
     ToastModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MenubarModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
