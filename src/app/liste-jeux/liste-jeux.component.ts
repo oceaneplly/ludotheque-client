@@ -11,10 +11,19 @@ import {JeuService} from '../_services/jeu.service';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  jeu: Jeu = {id:0, mecanique:"", editeur:"", age: 0, url:"", categorie: "", description: "", duree: "", langue: "", nom: "", poids: 0, regles: "", theme: ""};
+  jeu: Jeu = {id:0,nombrejoueurs:0,note: 0, mecanique:"", editeur:"", age: 0, url:"", categorie: "", description: "", duree: "", langue: "", nom: "", poids: 0, regles: "", theme: ""};
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
   tri: string;
+
+  tableauNombre = [];
+  selectNombre = [];
+  tableauTheme = [];
+  selectTheme = [];
+  tableauEditeur = [];
+  selectEditeur = [];
+  tableauAge = [];
+  selectAge = [];
 
   constructor(public jeuxService: JeuService) {
   }
@@ -24,6 +33,19 @@ export class ListeJeuxComponent implements OnInit {
     this.jeuxService.getAll().subscribe(res => {
       // @ts-ignore
       this.jeux = res;
+      console.log(res);
+      res.forEach((x : Jeu) => {
+        if (x.nombrejoueurs !== undefined) {
+          this.tableauNombre.push(x.nombrejoueurs);
+        }
+        if (x.theme !== undefined) {
+          this.tableauTheme.push(x.theme);
+        }
+        if (x.editeur !== undefined) {
+          this.tableauEditeur.push(x.editeur);
+        }
+
+      });
     });
     this.tri = 'pi pi-sort-alpha-up';
   }

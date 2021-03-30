@@ -13,4 +13,5 @@ export class Jeu {
   regles: string;
   editeur: string;
   note: number;
+  nombrejoueurs: number;
 }

@@ -36,6 +36,10 @@ import {DropdownModule} from 'primeng/dropdown';
 import { NewUserComponent } from './new-user/new-user.component';
 import {Card, CardModule} from "primeng/card";
 import {Rating,RatingModule} from "primeng/rating";
+import {MultiSelectModule} from 'primeng/multiselect';
+
+
+import {SplitButton, SplitButtonModule} from "primeng/splitbutton";
 
 
 
@@ -74,7 +78,8 @@ registerLocaleData(localeFr, 'fr');
     DropdownModule,
     CardModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    MultiSelectModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
