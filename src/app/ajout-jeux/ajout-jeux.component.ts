@@ -23,7 +23,7 @@ export class AjoutJeuxComponent implements OnInit {
     duree : new FormControl(''),
     regles : new FormControl('')
   });
-  constructor(public jeuService: JeuService) { }
+  constructor(public jeuService : JeuService) { }
 
   ngOnInit(): void {
   }
@@ -31,5 +31,4 @@ export class AjoutJeuxComponent implements OnInit {
     const form = this.formulaire.value;
     this.jeuService.ajoutJeu(this.jeu).subscribe(res => { console.log(res);  });
   }
-
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'jeux', component: ListeJeuxComponent},
-  {path: 'jeux/:id', component: DetailsJeuComponent},
+  {path: 'jeux/:id', component:  DetailsJeuComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'ro', component: LpSolverTestComponent}
