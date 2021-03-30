@@ -20,6 +20,20 @@ import { ProfileComponent } from './profile/profile.component';
 import {UserService} from './_services/user.service';
 import { LpSolverTestComponent } from './lp-solver-test/lp-solver-test.component';
 import {MarkdownModule} from 'ngx-markdown';
+import { HomeComponent } from './home/home.component';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuModule} from 'primeng/menu';
+import {MenuItem} from 'primeng/api';
+import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
+import { TableModule } from 'primeng/table';
+import {JeuService} from './_services/jeu.service';
+import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
+import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
+import {Button, ButtonModule} from "primeng/button";
+import {Ripple, RippleModule} from "primeng/ripple";
+import {InputTextModule} from "primeng/inputtext";
+import {DropdownModule} from "primeng/dropdown";
+import { NewUserComponent } from './new-user/new-user.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -28,7 +42,14 @@ registerLocaleData(localeFr, 'fr');
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    LpSolverTestComponent
+    LpSolverTestComponent,
+    HomeComponent,
+    ListeJeuxComponent,
+    DetailsJeuComponent,
+    ListeJeuxComponent,
+    AjoutJeuxComponent,
+    LpSolverTestComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +60,19 @@ registerLocaleData(localeFr, 'fr');
     MessagesModule,
     ToastModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    MenubarModule,
+    MenuModule,
+    TableModule,
+    InputTextModule,
+    DropdownModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    UserService
+    UserService, JeuService
   ],
   bootstrap: [AppComponent]
 })

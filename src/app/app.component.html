@@ -1,9 +1,13 @@
-<ul>
-  <li *ngIf="authService.isLoggedOut$ | async"><a [routerLink]="['/login']">Login</a></li>
-  <li *ngIf="authService.isLoggedIn$ | async"><a [routerLink]="['/profile']">Profile</a></li>
-  <li *ngIf="authService.isLoggedIn$ | async"><button (click)="logout()">logout</button></li>
-  <li><a [routerLink]="['/ro']">Exo RO</a></li>
-</ul>
+<div>
+  <div *ngIf="authService.isLoggedOut$ | async">
+  <p-menubar [model]="items">Ludothèque de la VikTeam</p-menubar>
+  </div>
+
+  <div *ngIf="authService.isLoggedIn$ | async">
+    <p-menubar [model]="items1">Ludothèque de la VikTeam</p-menubar>
+  </div>
+
+</div>
 <router-outlet></router-outlet>
 
 <p-toast position="top-right" key="main"></p-toast>
