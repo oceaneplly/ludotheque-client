@@ -1,6 +1,11 @@
 <div>
-
+  <div *ngIf="authService.isLoggedOut$ | async">
   <p-menubar [model]="items">Ludothèque de la VikTeam</p-menubar>
+  </div>
+
+  <div *ngIf="authService.isLoggedIn$ | async">
+    <p-menubar [model]="items1">Ludothèque de la VikTeam</p-menubar>
+  </div>
 
 </div>
 <router-outlet></router-outlet>

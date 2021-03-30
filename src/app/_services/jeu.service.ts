@@ -19,7 +19,8 @@ const httpOptions = {
 
 export class  JeuService{
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
 
   getJeuHttp(): Observable<Jeu> {
     const url = 'http://localhost:8000/jeux';
@@ -53,5 +54,15 @@ export class  JeuService{
 
     }, httpOptions);
 
+  }
+
+  // tslint:disable-next-line:typedef
+  // @ts-ignore
+  getAll(): Observable<Array<Jeu>> {
+    return this.http.get<any>(environment.apiUrl + '/jeux', httpOptions)
+      .pipe(
+        map(rep => rep.data.item),
+        catchError(err => throwError(err))
+      );
   }
 }

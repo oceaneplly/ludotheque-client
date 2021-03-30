@@ -12,6 +12,8 @@ import { MenuItem } from 'primeng/api';
 export class AppComponent implements OnInit{
   title = 'ludotheque-client';
   items: MenuItem[];
+  items1: MenuItem[];
+  isLogin: boolean;
 
   ngOnInit(): void {
     this.items = [
@@ -21,14 +23,6 @@ export class AppComponent implements OnInit{
         routerLink: '/home',
         routerLinkActiveOptions: { exact: true }
       },
-
-      {
-        label: 'Liste',
-        icon: 'pi pi-list',
-        routerLink: '/listeJeux',
-        routerLinkActiveOptions: { exact: true }
-      },
-
       {
         label: 'Se connecter',
         icon: 'pi pi-user',
@@ -43,6 +37,36 @@ export class AppComponent implements OnInit{
         routerLinkActiveOptions: { exact: true }
       },
     ];
+
+    this.items1 = [
+      {
+        label: 'Accueil',
+        icon: 'pi pi-home',
+        routerLink: '/home',
+        routerLinkActiveOptions: { exact: true }
+      },
+      {
+        label: 'Liste',
+        icon: 'pi pi-list',
+        routerLink: '/listeJeux',
+        routerLinkActiveOptions: { exact: true }
+      },
+      {
+        label: 'Se déconnecter',
+        icon: 'pi pi-home',
+        routerLink: '/home',
+        routerLinkActiveOptions: {exact: true},
+        command: () => {
+          this.logout();
+        }
+      },
+      {
+        label: 'Profil',
+        icon: 'pi pi-home',
+        routerLink: '/profile',
+        routerLinkActiveOptions: { exact: true }
+      },
+      ];
   }
 
   constructor(public messageService: MessageService, public authService: AuthentificationService) {
@@ -59,7 +83,13 @@ export class AppComponent implements OnInit{
 
   logout(): void {
     this.authService.logout();
+    this.isLogin = false;
   }
 
-
+  login(): void {
+    this.isLogin = true;
+  }
+  getLogin(): boolean {
+    return this.isLogin;
+  }
 }
