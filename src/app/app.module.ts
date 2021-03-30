@@ -26,6 +26,7 @@ import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 import { TableModule } from 'primeng/table';
+import {JeuService} from './_services/jeu.service';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -55,7 +56,7 @@ registerLocaleData(localeFr, 'fr');
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    UserService
+    UserService, JeuService
   ],
   bootstrap: [AppComponent]
 })

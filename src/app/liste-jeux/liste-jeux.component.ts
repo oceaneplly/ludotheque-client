@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {JeuxService} from '../jeux.service';
-import {Jeux} from '../jeux';
+// import {JeuxService} from '../jeux.service';
+import {Jeu} from '../_models/jeu';
 import {Observable} from 'rxjs';
+import {JeuService} from '../_services/jeu.service';
 
 @Component({
   selector: 'app-liste-jeux',
@@ -10,8 +11,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  jeux: Observable<Jeux[]>;
-  constructor(public jeuxService: JeuxService) {
+  jeux: Observable<Jeu>;
+  constructor(public jeuxService: JeuService) {
     this.jeux = this.jeuxService.getJeuHttp();
   }
 
