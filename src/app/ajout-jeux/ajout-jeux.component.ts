@@ -21,7 +21,7 @@ interface Categorie {
   styleUrls: ['./ajout-jeux.component.css']
 })
 export class AjoutJeuxComponent implements OnInit {
-  jeu: Jeu = {id:0, url:"", age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
+  jeu: Jeu = {id:0, url:"", editeur: "", mecanique:"", age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
   themes: Theme[] = [ {nom: 'Abstrait, lettres & mots'}, {nom: 'Animaux & Nature'}, {nom: 'Autres'}, {nom: 'Cartoon & Dessin'},
     {nom: 'Enfance & Contes'}, {nom: 'Fantastique & Héroïc Fantasy'}, {nom: 'Histoire & Antiquité'}, {nom: 'Horreur & Post-Apocalytique'},
     {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];

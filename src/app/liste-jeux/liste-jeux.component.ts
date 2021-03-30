@@ -11,8 +11,9 @@ import {JeuService} from '../_services/jeu.service';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  jeu: Jeu = {id:0, age: 0, url:"", categorie: "", description: "", duree: "", langue: "", nom: "", poids: 0, regles: "", theme: ""};
+  jeu: Jeu = {id:0, mecanique:"", editeur:"", age: 0, url:"", categorie: "", description: "", duree: "", langue: "", nom: "", poids: 0, regles: "", theme: ""};
   jeux: Array<Jeu>;
+  jeuSelectionne: Jeu;
 
   constructor(public jeuxService: JeuService) {
   }
@@ -28,6 +29,17 @@ export class ListeJeuxComponent implements OnInit {
   // tslint:disable-next-line:typedef
   public getListe() {
     return this.jeux;
+  }
+
+  onRowSelect(jeu: Jeu) {
+    if (this.jeuSelectionne===jeu) {
+      this.jeuSelectionne=undefined;
+      console.log(this.jeuSelectionne);
+    }
+    else {
+      this.jeuSelectionne = jeu;
+      console.log(this.jeuSelectionne);
+    }
   }
 
 }

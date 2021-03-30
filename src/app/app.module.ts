@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthentificationService} from './_services/authentification.service';
 import {MessagesModule} from 'primeng/messages';
 import {ToastModule} from 'primeng/toast';
@@ -34,6 +34,8 @@ import {Ripple, RippleModule} from "primeng/ripple";
 import {InputTextModule} from "primeng/inputtext";
 import {DropdownModule} from "primeng/dropdown";
 import { NewUserComponent } from './new-user/new-user.component';
+import {Card, CardModule} from "primeng/card";
+import {Rating,RatingModule} from "primeng/rating";
 
 registerLocaleData(localeFr, 'fr');
 
@@ -49,7 +51,7 @@ registerLocaleData(localeFr, 'fr');
     ListeJeuxComponent,
     AjoutJeuxComponent,
     LpSolverTestComponent,
-    NewUserComponent
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,10 @@ registerLocaleData(localeFr, 'fr');
     MenuModule,
     TableModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    CardModule,
+    RatingModule,
+    FormsModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},

@@ -1,4 +1,8 @@
-<p-table [value]="jeux">
+
+<div *ngIf="jeuSelectionne">
+  <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
+</div>
+<p-table [value]="jeux" (onRowUnselect)="jeuSelectionne=undefined">
   <ng-template pTemplate="header">
     <tr>
       <th>#</th>
@@ -23,7 +27,7 @@
       <td>{{jeu.age}}</td>
       <td>{{jeu.duree}}</td>
       <td>
-        <button type="button" pButton pRipple icon="pi pi-search" [routerLink]="['/jeux',jeu.id]"></button>
+        <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
       </td>
     </tr>
   </ng-template>

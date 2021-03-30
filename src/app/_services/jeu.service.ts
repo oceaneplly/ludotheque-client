@@ -7,7 +7,6 @@ import {environment} from '../../environments/environment';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {Jeu} from '../_models/jeu';
-import {ListeJeuxComponent} from "../liste-jeux/liste-jeux.component";
 
 
 const httpOptions = {
@@ -19,12 +18,11 @@ const httpOptions = {
 })
 
 export class  JeuService{
-
+  map: Map<number, Jeu>;
 
   constructor(private http: HttpClient) {
 
   }
-
 
   getJeuHttp(): Observable<Jeu> {
     const url = 'http://localhost:8000/jeux';
@@ -46,6 +44,7 @@ export class  JeuService{
       jeu, httpOptions);
   }
 
+
   getAll(): Observable<Array<Jeu>> {
     return this.http.get<any>(environment.apiUrl + '/jeux', httpOptions)
       .pipe(
@@ -53,5 +52,4 @@ export class  JeuService{
         catchError(err => throwError(err))
       );
     }
-
   }
