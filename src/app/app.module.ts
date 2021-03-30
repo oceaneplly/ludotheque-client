@@ -34,7 +34,6 @@ import {Ripple, RippleModule} from "primeng/ripple";
 import {InputTextModule} from "primeng/inputtext";
 import {DropdownModule} from "primeng/dropdown";
 import { NewUserComponent } from './new-user/new-user.component';
-import {ButtonModule} from 'primeng/button';
 
 registerLocaleData(localeFr, 'fr');
 
