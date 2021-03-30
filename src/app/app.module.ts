@@ -22,8 +22,11 @@ import { LpSolverTestComponent } from './lp-solver-test/lp-solver-test.component
 import {MarkdownModule} from 'ngx-markdown';
 import { HomeComponent } from './home/home.component';
 import {MenubarModule} from 'primeng/menubar';
-import {Menu} from "primeng/menu";
+import {MenuModule} from 'primeng/menu';
+import {MenuItem} from 'primeng/api';
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
+import { TableModule } from 'primeng/table';
+import {JeuService} from './_services/jeu.service';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -46,12 +49,14 @@ registerLocaleData(localeFr, 'fr');
     ToastModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MenubarModule
+    MenubarModule,
+    MenuModule,
+    TableModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    UserService
+    UserService, JeuService
   ],
   bootstrap: [AppComponent]
 })

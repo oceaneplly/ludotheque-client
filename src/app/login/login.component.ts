@@ -60,20 +60,24 @@ export class LoginComponent implements OnInit {
           this.messageService.add({severity: 'error', summary: 'Erreur', detail: this.error, key: 'main'});
         }
       );
-        this.authService.login(this.email.value, this.password.value).subscribe(
-          data => {
-            this.tokenStorage.saveToken(data.access_token);
-            this.tokenStorage.saveUser(data.user$);
 
-            this.roles = this.tokenStorage.getUser().roles;
-            this.router.navigate(['/']);
-          },
-          err => {
-            this.formulaire.reset();
-            this.formulaire.patchValue({email: this.form.email});
-            this.tokenStorage.signOut();
-            this.messageService.add({severity: 'error', summary: 'Erreur', detail: err.error.data.values[0], key: 'main'});
-          }
-        );
+
+    this.authService.login(this.email.value, this.password.value).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.access_token);
+        this.tokenStorage.saveUser(data.user$);
+
+        this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigate(['/']);
+      },
+      err => {
+        this.formulaire.reset();
+        this.formulaire.patchValue({email: this.form.email});
+        this.tokenStorage.signOut();
+        this.messageService.add({severity: 'error', summary: 'Erreur', detail: err.error.data.values[0], key: 'main'});
+      }
+    );
+
+
   }
 }

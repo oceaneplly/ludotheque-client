@@ -25,6 +25,13 @@ export class AppComponent implements OnInit{
       },
 
       {
+        label: 'Liste',
+        icon: 'pi pi-list',
+        routerLink: '/listeJeux',
+        routerLinkActiveOptions: { exact: true }
+      },
+
+      {
         label: 'Se connecter',
         icon: 'pi pi-user',
         routerLink: '/login',
