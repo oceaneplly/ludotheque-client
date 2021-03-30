@@ -18,6 +18,8 @@ const httpOptions = {
 
 export class  JeuService{
   jeux: Jeu[];
+  url = 'http://localhost:8000/jeux/';
+
   constructor(private http: HttpClient) {}
 
   getJeuHttp(): Observable<Jeu> {
@@ -33,6 +35,16 @@ export class  JeuService{
           console.log('Erreur http : ', err);
           return of([]);
         }),
+      );
+  }
+
+  // tslint:disable-next-line:typedef
+  // @ts-ignore
+  getAll(): Observable<Array<Jeu>> {
+    return this.http.get<any>(environment.apiUrl + '/jeux', httpOptions)
+      .pipe(
+        map(rep => rep.data.item),
+        catchError(err => throwError(err))
       );
   }
 }

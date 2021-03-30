@@ -1,4 +1,4 @@
-export interface Jeu {
+export class Jeu {
   nom: string;
   description: string;
   theme: string;
