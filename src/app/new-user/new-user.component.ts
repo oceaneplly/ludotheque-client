@@ -34,8 +34,6 @@ export class NewUserComponent implements OnInit {
     console.info(this.formulaire.value);
   }
 
-
-
   // tslint:disable-next-line:typedef
   get nom(){
     return this.formulaire.get('nom');
