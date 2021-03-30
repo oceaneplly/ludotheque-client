@@ -6,7 +6,6 @@ import {LpSolverTestComponent} from './lp-solver-test/lp-solver-test.component';
 import {HomeComponent} from './home/home.component';
 import {ListeJeuxComponent} from './liste-jeux/liste-jeux.component';
 import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
-import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},

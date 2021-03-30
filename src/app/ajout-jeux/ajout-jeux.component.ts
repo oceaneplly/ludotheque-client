@@ -36,19 +36,19 @@ export class AjoutJeuxComponent implements OnInit {
     {nom: 'Zombies'}, {nom: 'Contes' }, {nom: 'Observation'}, {nom: 'Bande dessinée'}, {nom: 'Animaux' }, {nom: 'Affrontement'},
     {nom: 'Commerce'}, {nom: 'Jeu de rôle' }, {nom: 'Chance & Hasard'}, {nom: 'Cuisine'}, {nom: 'Bourse & finances' }, {nom: 'Divers'},
     {nom: 'Histoire'}, {nom: 'choix multiples' }, {nom: 'Jeu d\'Ambiance'}, {nom: 'Chiffres'}, {nom: 'Lettres & chiffres' }];
-
-  formulaire = new FormGroup({
-    nom: new FormControl(''),
-    description: new FormControl(''),
-    theme: new FormControl(''),
-    editeur: new FormControl(''),
-    langue: new FormControl(''),
-    age : new FormControl(''),
-    poids : new FormControl(''),
-    nombre_joueurs : new FormControl(''),
-    categorie : new FormControl(''),
-    duree : new FormControl(''),
-    regles : new FormControl('')
+    formulaire: FormGroup = new FormGroup({
+    nom: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    theme: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    editeur: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    url_media: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    langue: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    age : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    poids : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    nbJoueurs : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    categorie : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    duree : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+    regles : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1000)])
   });
   constructor(public jeuService: JeuService) { }
 
