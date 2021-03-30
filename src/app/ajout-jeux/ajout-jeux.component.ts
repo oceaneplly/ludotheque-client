@@ -17,7 +17,7 @@ export class AjoutJeuxComponent implements OnInit {
   mecaniques: Mecanique[];
   editeurs: Editeur[];
   // tslint:disable-next-line:max-line-length
-  jeu: Jeu = {id: 0, url: '', editeur: '', mecanique: '', age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
+  jeu: Jeu = {id: 0, nombrejoueurs: 0, note:0,url: '', editeur: '', mecanique: '', age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
   constructor(private messageService: MessageService, public jeuService: JeuService) { }
 
   ngOnInit(): void {
