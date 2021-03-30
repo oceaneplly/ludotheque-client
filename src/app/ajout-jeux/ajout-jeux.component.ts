@@ -29,8 +29,9 @@ export class AjoutJeuxComponent implements OnInit {
   ngOnInit(): void {
   }
   ajoutJeu(): void {
-    const form = this.formulaire.value;
-    this.jeuService.ajoutJeu(this.jeu);
+    this.jeu =  {...this.jeu, ...this.formulaire.value};
+    console.log(this.jeu);
+    this.jeuService.ajoutJeu(this.jeu).subscribe(rep => console.log(rep));
   }
 
 }
