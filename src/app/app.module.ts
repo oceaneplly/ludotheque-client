@@ -23,6 +23,7 @@ import {MarkdownModule} from 'ngx-markdown';
 import { HomeComponent } from './home/home.component';
 import {MenubarModule} from 'primeng/menubar';
 import {Menu} from "primeng/menu";
+import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -32,7 +33,8 @@ registerLocaleData(localeFr, 'fr');
     LoginComponent,
     ProfileComponent,
     LpSolverTestComponent,
-    HomeComponent
+    HomeComponent,
+    ListeJeuxComponent
   ],
   imports: [
     BrowserModule,
