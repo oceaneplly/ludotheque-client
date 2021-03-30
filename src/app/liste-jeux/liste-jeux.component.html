@@ -1,40 +1,11 @@
-<!--<div>-->
-<!--  <input type="text" id="nom"  value="Nom" />-->
-<!--  <br>-->
-<!--  <input type="text" id="desc"  value="Description" />-->
-<!--  <br>-->
-<!--  <input type="text" id="theme"  value="Thème" />-->
-<!--  <br>-->
-<!--  <input type="text" id="editeur"  value="Editeur" />-->
-<!--  <br>-->
-<!--  <input type="text" id="url_media"  value="URL_media" />-->
-<!--  <br>-->
-<!--  <input type="text" id="categorie"  value="Categorie" />-->
-<!--  <br>-->
-<!--  <input type="text" id="regles"  value="Règles" />-->
-<!--  <br>-->
-<!--  <input type="text" id="langue"  value="Langue" />-->
-<!--  <br>-->
-<!--  <input type="text" id="nbJoueurs"  value="Nombre de joueurs (entre 2 et 8)" />-->
-<!--  <br>-->
-<!--  <input type="text" id="age"  value="Age minimum (entre 1 et 16)" />-->
-<!--  <br>-->
-<!--  <input type="text" id="poids"  value="Poids (entre .100 et 5.00 hg)" />-->
-<!--  <br>-->
-<!--  <input type="text" id="duree"  value="Durée" />-->
-<!--  <br>-->
-<!--  <input type ="button"   (click)="ajouterJeu()" value="Soumettre">-->
-<!--</div>-->
 <p-table [value]="jeux">
   <ng-template pTemplate="header">
     <tr>
-      <th>#</th>
       <th>Nom</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-jeu>
     <tr>
-      <td>{{jeu.id}}</td>
       <td>{{jeu.nom}}</td>
     </tr>
   </ng-template>

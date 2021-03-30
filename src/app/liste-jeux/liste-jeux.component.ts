@@ -13,9 +13,11 @@ import {JeuService} from '../_services/jeu.service';
 export class ListeJeuxComponent implements OnInit {
   jeux: Observable<Jeu>;
   constructor(public jeuxService: JeuService) {
-    this.jeux = this.jeuxService.getJeuHttp();
+    this.jeux = this.jeuxService.getJeux();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.jeux);
+  }
 
 }
