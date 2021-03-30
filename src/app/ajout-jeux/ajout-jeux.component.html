@@ -23,54 +23,71 @@
 
     </div>
   </div>
-  <div class="p-field">
-    <label for="editeur" class="p-sr-only">Nom</label>
-    <input id="editeur" type="text" pInputText placeholder="Editeur" formControlName="Editeur">
+  <div class="p-formgroup-inline">
+    <div class="p-field">
+      <label for="editeur" class="p-sr-only">Editeur</label>
+      <input id="editeur" type="text" pInputText placeholder="Editeur" formControlName="editeur">
+    </div>
+  </div>
+  <div class="p-formgroup-inline">
+
+    <div class="p-field">
+      <label for="url_media" class="p-sr-only">URL</label>
+      <input id="url_media" type="text" pInputText placeholder="URL_media" formControlName="url_media">
+
+    </div>
+  </div>
+  <div class="p-formgroup-inline">
+    <div class="p-field">
+      <label for="categorie" class="p-sr-only">Catégorie</label>
+      <input id="categorie" type="text" pInputText placeholder="editeur" formControlName="categorie">
+    </div>
+  </div>
+  <div class="p-formgroup-inline">
+
+    <div class="p-field">
+      <label for="regles" class="p-sr-only">Règles</label>
+      <input id="regles" type="text" pInputText placeholder="regle" formControlName="regles">
+    </div>
 
   </div>
-  <div class="p-field">
-    <label for="url_media" class="p-sr-only">Nom</label>
-    <input id="url_media" type="text" pInputText placeholder="URL_media" formControlName="URL_media">
+  <div class="p-formgroup-inline">
 
+    <div class="p-field">
+      <label for="langue" class="p-sr-only">Langue</label>
+      <input id="langue" type="text" pInputText placeholder="langue" formControlName="langue">
+    </div>
   </div>
+  <div class="p-formgroup-inline">
 
-  <div class="p-field">
-    <label for="categorie" class="p-sr-only">Catégorie</label>
-    <input id="categorie" type="text" pInputText placeholder="editeur" formControlName="Categorie">
-
-  </div>
-  <div class="p-field">
-    <label for="regles" class="p-sr-only">Règles</label>
-    <input id="regles" type="text" pInputText placeholder="regle" formControlName="regle">
-
-  </div>
-  <div class="p-field">
-    <label for="langue" class="p-sr-only">Langue</label>
-    <input id="langue" type="text" pInputText placeholder="langue" formControlName="langue">
-
-  </div>
   <div class="p-field">
     <label for="nbJoueurs" class="p-sr-only">Nombre de joueurs (entre 2 et 8)</label>
     <input id="nbJoueurs" type="text" pInputText placeholder="nbJoueurs" formControlName="nbJoueurs">
-
   </div>
+  </div>
+  <div class="p-formgroup-inline">
+
   <div class="p-field">
     <label for="age" class="p-sr-only">Age minimum (entre 1 et 16)</label>
     <input id="age" type="text" pInputText placeholder="age" formControlName="age">
 
-
   </div>
+  </div>
+  <div class="p-formgroup-inline">
+
   <div class="p-field">
     <label for="poids" class="p-sr-only">Poids (entre .100 et 5.00 hg)</label>
     <input id="poids" type="text" pInputText placeholder="poids" formControlName="poids">
 
-
   </div>
+  </div>
+  <div class="p-formgroup-inline">
+
   <div class="p-field">
     <label for="duree" class="p-sr-only">Durée</label>
     <input id="duree" type="text" pInputText placeholder="duree" formControlName="duree">
 
-
+  </div>
   </div>
   <button pButton type="submit" label="Valide"></button>
 </form>

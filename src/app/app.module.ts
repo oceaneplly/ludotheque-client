@@ -29,6 +29,7 @@ import { TableModule } from 'primeng/table';
 import {JeuService} from './_services/jeu.service';
 import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
+import {InputTextModule} from "primeng/inputtext";
 
 registerLocaleData(localeFr, 'fr');
 
@@ -56,7 +57,8 @@ registerLocaleData(localeFr, 'fr');
     ReactiveFormsModule,
     MenubarModule,
     MenuModule,
-    TableModule
+    TableModule,
+    InputTextModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
