@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import {MenubarModule} from 'primeng/menubar';
 import {Menu} from "primeng/menu";
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
+import { AjoutJeuxComponent } from './ajout-jeux/ajout-jeux.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -34,7 +35,8 @@ registerLocaleData(localeFr, 'fr');
     ProfileComponent,
     LpSolverTestComponent,
     HomeComponent,
-    ListeJeuxComponent
+    ListeJeuxComponent,
+    AjoutJeuxComponent
   ],
   imports: [
     BrowserModule,
