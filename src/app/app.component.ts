@@ -55,10 +55,16 @@ export class AppComponent implements OnInit{
         label: 'Se déconnecter',
         icon: 'pi pi-home',
         routerLink: '/home',
-        routerLinkActiveOptions: { exact: true },
+        routerLinkActiveOptions: {exact: true},
         command: () => {
           this.logout();
         }
+      },
+      {
+        label: 'Profil',
+        icon: 'pi pi-home',
+        routerLink: '/profile',
+        routerLinkActiveOptions: { exact: true }
       },
       ];
   }
