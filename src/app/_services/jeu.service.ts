@@ -13,10 +13,28 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
+@Injectable({
+  providedIn: 'root'
+})
+
 export class  JeuService{
 
   constructor(private http: HttpClient) {
 
+  getJeuHttp(): Observable<Jeu> {
+    const url = 'http://localhost:8000/jeux';
+    // tslint:disable-next-line:no-shadowed-variable
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+    return this.http.get<any>(url, httpOptions)
+      .pipe(
+        map(res => res.data.item),
+        catchError(err => {
+          console.log('Erreur http : ', err);
+          return of([]);
+        }),
+      );
   }
   ajoutJeu(): Observable<Jeu> {
     return this.http.post(environment.apiUrl + '/jeux',

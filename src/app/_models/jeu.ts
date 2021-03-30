@@ -6,6 +6,6 @@ export interface Jeu {
   age: number;
   poids: number;
   categorie: string;
-  duree : string;
-  regles : string;
+  duree: string;
+  regles: string;
 }
