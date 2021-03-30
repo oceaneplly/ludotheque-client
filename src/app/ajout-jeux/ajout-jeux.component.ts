@@ -9,6 +9,7 @@ import {Jeu} from '../_models/jeu';
   styleUrls: ['./ajout-jeux.component.css']
 })
 export class AjoutJeuxComponent implements OnInit {
+  jeu: Jeu = {age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
   formulaire = new FormGroup({
     nom: new FormControl(''),
     description: new FormControl(''),
@@ -22,15 +23,16 @@ export class AjoutJeuxComponent implements OnInit {
     duree : new FormControl(''),
     regles : new FormControl('')
   });
-  constructor(public jeuService : JeuService) { }
+  constructor(public jeuService: JeuService) { }
 
   ngOnInit(): void {
   }
   ajoutJeu(): void {
     const form = this.formulaire.value;
-    this.jeuService.ajoutJeu(form.nom, form.description, form.theme , form.editeur, form.langue, form.age, form.poids, form.nombre_joueurs, form.categorie , form.duree, form.regles);
+    this.jeuService.ajoutJeu(this.jeu).subscribe(res => { console.log(res);  });
 
 
 
-  }
+
 }
+  }

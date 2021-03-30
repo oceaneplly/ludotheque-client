@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../_models/user';
 import {environment} from '../../environments/environment';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
-import * as moment from 'moment';
+import * as moment from 'moment';//bonjour comment va tu
 import {MessageService} from 'primeng/api';
 import {Jeu} from '../_models/jeu';
 
@@ -42,9 +42,7 @@ export class  JeuService{
       jeu, httpOptions);
 
   }
-  //Bonjour comment va tu
-  // tslint:disable-next-line:typedef
-  // @ts-ignore
+
   getAll(): Observable<Array<Jeu>> {
     return this.http.get<any>(environment.apiUrl + '/jeux', httpOptions)
       .pipe(

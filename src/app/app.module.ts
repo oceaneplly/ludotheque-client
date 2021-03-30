@@ -27,6 +27,7 @@ import {MenuItem} from 'primeng/api';
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 import { TableModule } from 'primeng/table';
 import {JeuService} from './_services/jeu.service';
+import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
 
 registerLocaleData(localeFr, 'fr');
 
