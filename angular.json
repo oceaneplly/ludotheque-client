@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "dfc6b202-a618-4bad-a68b-957ddd3fffde"
+    "analytics": "c60de245-218b-4f8c-b417-b035d378cef3"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -33,6 +33,7 @@
               "src/styles.css",
               "node_modules/primeflex/primeflex.css",
               "node_modules/prismjs/themes/prism-solarizedlight.css"
+
             ],
             "scripts": [
               "node_modules/javascript-lp-solver/prod/solver.js",
