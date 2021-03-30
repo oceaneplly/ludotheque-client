@@ -12,4 +12,5 @@ export class Jeu {
   duree: string;
   regles: string;
   editeur: string;
+  note: number;
 }
