@@ -47,7 +47,7 @@ export class ListeJeuxComponent implements OnInit {
 
       });
     });
-    this.tri = 'pi pi-sort-alpha-up';
+    this.tri = '';
   }
 
   // tslint:disable-next-line:typedef
