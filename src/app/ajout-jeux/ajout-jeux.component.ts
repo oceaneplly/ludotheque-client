@@ -27,8 +27,9 @@ export class AjoutJeuxComponent implements OnInit {
     {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];
 
   editeurs: Editeur[] = [ {nom: '1-2-3-Games'}, {nom: '1A Games'}, {nom: '2d Sans Faces'}, {nom: '404 Editions'},
-    {nom: '4Dados'}, {nom: '7ème Cercle'}, {nom: 'Abacus Spiele'}, {nom: 'Horreur & Post-Apocalytique'},
-    {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];
+    {nom: '4Dados'}, {nom: '7ème Cercle'}, {nom: 'Abacus Spiele'}, {nom: 'Academy Games'},
+    {nom: 'ACIES Edizioni'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }
+    ];
 
   categories: Categorie[] = [ {nom: 'Abstrait'}, {nom: 'Humour'}, {nom: 'Jeu de plateau'}, {nom: 'Enquêtes & Mystères'},
     {nom: 'Antiquité'}, {nom: 'Western'}, {nom: 'Jeu de Cartes'}, {nom: 'Connaissances'},

@@ -18,17 +18,20 @@
 
   <div class="p-formgroup-inline">
     <div class="p-field">
+      <span class="p-text-secondary">Thème</span>
       <label for="theme" class="p-sr-only">Thème</label>
-      <input id="theme" type="text" pInputText placeholder="Thème" formControlName="theme">
-
+      <p-dropdown id="theme" name="theme"  optionLabel="nom" optionValue="nom" [options]="themes" formControlName="theme"></p-dropdown>
     </div>
   </div>
+
   <div class="p-formgroup-inline">
     <div class="p-field">
+      <span class="p-text-secondary">Editeur</span>
       <label for="editeur" class="p-sr-only">Editeur</label>
-      <input id="editeur" type="text" pInputText placeholder="Editeur" formControlName="editeur">
+      <p-dropdown id="editeur" name="editeur"  optionLabel="nom" optionValue="nom" [options]="editeurs" formControlName="editeur"></p-dropdown>
     </div>
   </div>
+
   <div class="p-formgroup-inline">
 
     <div class="p-field">
@@ -39,8 +42,9 @@
   </div>
   <div class="p-formgroup-inline">
     <div class="p-field">
+      <span class="p-text-secondary">Catégorie</span>
       <label for="categorie" class="p-sr-only">Catégorie</label>
-      <p-dropdown id="categorie" name="categorie"  optionLabel="nom" optionValue="nom" [options]="categories" formControlName="specialite"></p-dropdown>
+      <p-dropdown id="categorie" name="categorie"  optionLabel="nom" optionValue="nom" [options]="categories" formControlName="categorie"></p-dropdown>
     </div>
   </div>
   <div class="p-formgroup-inline">
