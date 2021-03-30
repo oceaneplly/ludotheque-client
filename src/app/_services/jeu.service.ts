@@ -44,14 +44,14 @@ export class  JeuService{
   ajoutJeu(jeu: Jeu): Observable<Jeu> {
     return this.http.post<any>(environment.apiUrl + '/jeux',
       jeu, httpOptions);
+  }
 
-  // tslint:disable-next-line:typedef
-  // @ts-ignore
   getAll(): Observable<Array<Jeu>> {
     return this.http.get<any>(environment.apiUrl + '/jeux', httpOptions)
       .pipe(
         map(rep => rep.data.item),
         catchError(err => throwError(err))
       );
+    }
+
   }
-}
