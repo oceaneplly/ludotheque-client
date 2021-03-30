@@ -23,14 +23,6 @@ export class AppComponent implements OnInit{
         routerLink: '/home',
         routerLinkActiveOptions: { exact: true }
       },
-
-      {
-        label: 'Liste',
-        icon: 'pi pi-list',
-        routerLink: '/listeJeux',
-        routerLinkActiveOptions: { exact: true }
-      },
-
       {
         label: 'Se connecter',
         icon: 'pi pi-user',
@@ -51,6 +43,12 @@ export class AppComponent implements OnInit{
         label: 'Accueil',
         icon: 'pi pi-home',
         routerLink: '/home',
+        routerLinkActiveOptions: { exact: true }
+      },
+      {
+        label: 'Liste',
+        icon: 'pi pi-list',
+        routerLink: '/listeJeux',
         routerLinkActiveOptions: { exact: true }
       },
       {
