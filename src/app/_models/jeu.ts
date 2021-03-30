@@ -12,4 +12,6 @@ export interface Jeu {
   duree: string;
   regles: string;
   editeur: string;
+  note: number;
+  nombrejoueurs: number;
 }

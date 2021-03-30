@@ -1,3 +1,19 @@
+<br>
+<p-button label="Tri" icon="{{tri}}" (onClick)="onTri()"></p-button>
+<br>
+<br>
+<p-multiSelect [options]="tableauNombre" [(ngModel)]="selectNombre" optionDisabled="inactive" defaultLabel="Choisir un nombre" optionLabel="name"></p-multiSelect>
+<br>
+<br>
+<p-multiSelect [options]="tableauTheme" [(ngModel)]="selectTheme" optionDisabled="inactive" defaultLabel="Choisir un thème" optionLabel="name"></p-multiSelect>
+<br>
+<br>
+<p-multiSelect [options]="tableauEditeur" [(ngModel)]="selectEditeur" optionDisabled="inactive" defaultLabel="Choisir un éditeur" optionLabel="name"></p-multiSelect>
+<br>
+<br>
+<p-multiSelect [options]="tableauAge" [(ngModel)]="selectAge" optionDisabled="inactive" defaultLabel="Choisir un âge" optionLabel="name"></p-multiSelect>
+<br>
+<br>
 
 <div *ngIf="jeuSelectionne">
   <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
@@ -24,7 +40,7 @@
       </td>
       <td>{{jeu.description}}</td>
       <td>{{jeu.theme}}</td>
-      <td>{{jeu.age}}</td>
+      <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>
         <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
