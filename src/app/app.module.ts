@@ -31,6 +31,8 @@ import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
 import {InputTextModule} from "primeng/inputtext";
 import {DropdownModule} from "primeng/dropdown";
+import { NewUserComponent } from './new-user/new-user.component';
+import {ButtonModule} from 'primeng/button';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -44,7 +46,9 @@ registerLocaleData(localeFr, 'fr');
     ListeJeuxComponent,
     DetailsJeuComponent,
     ListeJeuxComponent,
-    AjoutJeuxComponent
+    AjoutJeuxComponent,
+    LpSolverTestComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ registerLocaleData(localeFr, 'fr');
     MessagesModule,
     ToastModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    ButtonModule,
     ReactiveFormsModule,
     MenubarModule,
     MenuModule,
