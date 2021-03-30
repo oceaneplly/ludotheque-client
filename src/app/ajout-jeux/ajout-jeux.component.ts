@@ -16,13 +16,14 @@ export class AjoutJeuxComponent implements OnInit {
   themes: Theme[];
   mecaniques: Mecanique[];
   editeurs: Editeur[];
-  // tslint:disable-next-line:max-line-length
-  jeu: Jeu = {id: 0, url: '', editeur: '', mecanique: '', age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
-  constructor(private messageService: MessageService, public jeuService: JeuService) { }
+  jeu: Jeu;
+
+
+  constructor(private messageService: MessageService, public jeuService: JeuService) {
+  }
 
   ngOnInit(): void {
-
-      this.formulaire = new FormGroup({
+    this.formulaire = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
       description: new FormControl('', Validators.required),
       theme: new FormControl(1, Validators.required),
@@ -39,39 +40,57 @@ export class AjoutJeuxComponent implements OnInit {
     });
 
 
-
-      this.jeuService.getThemes().subscribe(
+    this.jeuService.getThemes().subscribe(
       themes => {
         this.themes = themes;
       },
       (err) => {
-        this.messageService.add({severity: 'error', summary: 'Erreur', detail: 'impossible d\'obtenir la liste des jeux' , key: 'main'});
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
       }
     );
-      this.jeuService.getEditeurs().subscribe(
+    this.jeuService.getEditeurs().subscribe(
       editeurs => {
         this.editeurs = editeurs;
       },
       (err) => {
-        this.messageService.add({severity: 'error', summary: 'Erreur', detail: 'impossible d\'obtenir la liste des jeux' , key: 'main'});
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
       }
     );
-      this.jeuService.getMecaniques().subscribe(
+    this.jeuService.getMecaniques().subscribe(
       mecaniques => {
         this.mecaniques = mecaniques;
       },
       (err) => {
-        this.messageService.add({severity: 'error', summary: 'Erreur', detail: 'impossible d\'obtenir la liste des jeux' , key: 'main'});
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
       }
     );
   }
+
   ajoutJeu(): void {
     this.jeu = {
-     ...this.jeu, ...this.formulaire.value
+      ...this.jeu, ...this.formulaire.value
 
 
     };
-    this.jeuService.ajoutJeu(this.jeu).subscribe(res => { console.log(res);  });
-  }
+    this.jeuService.ajoutJeu(this.jeu).subscribe(res => {
+      console.log(res);
+    });
 
+
+  }
 }
