@@ -7,6 +7,8 @@ import {environment} from '../../environments/environment';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {Jeu} from '../_models/jeu';
+import {ListeJeuxComponent} from "../liste-jeux/liste-jeux.component";
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -17,12 +19,10 @@ const httpOptions = {
 })
 
 export class  JeuService{
-  jeux: Jeu[];
-  url = 'http://localhost:8000/jeux/';
-  map: Map<number, Jeu>;
+
 
   constructor(private http: HttpClient) {
-    this.map = new Map();
+
   }
 
 

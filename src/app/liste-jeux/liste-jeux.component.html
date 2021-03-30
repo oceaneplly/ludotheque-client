@@ -1,6 +1,7 @@
 <p-table [value]="jeux">
   <ng-template pTemplate="header">
     <tr>
+      <th>#</th>
       <th>Nom</th>
       <th>Photo</th>
       <th>Description</th>
@@ -14,14 +15,15 @@
     <tr>
       <td>{{jeu.id}}</td>
       <td>{{jeu.nom}}</td>
-      <td>{{jeu.url}}</td>
+      <td>
+        <img src="{{jeu.url}}">
+      </td>
       <td>{{jeu.description}}</td>
       <td>{{jeu.theme}}</td>
       <td>{{jeu.age}}</td>
       <td>{{jeu.duree}}</td>
       <td>
         <button type="button" pButton pRipple icon="pi pi-search" [routerLink]="['/jeux',jeu.id]"></button>
-
       </td>
     </tr>
   </ng-template>

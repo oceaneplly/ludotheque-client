@@ -1,6 +1,7 @@
 export class Jeu {
   id: number;
   nom: string;
+  url: string;
   description: string;
   theme: string;
   langue: string;
