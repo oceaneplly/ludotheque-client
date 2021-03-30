@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {validateur} from '../validateur';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Validateur} from '../Validateur';
+import {Observable, throwError} from 'rxjs';
+import {environment} from '../../environments/environment';
+import {catchError, map, shareReplay, tap} from 'rxjs/operators';
+import {ANONYMOUS_USER} from '../_services/authentification.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Component({
   selector: 'app-new-user',
@@ -19,13 +28,20 @@ export class NewUserComponent implements OnInit {
     password: new FormGroup({
       mdp: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*\\d).{8,}')]),
       confirmMdp: new FormControl('')
-    }, [validateur.passwordConfirming])
+    }, [Validateur.passwordConfirming])
     }
   );
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  // tslint:disable-next-line:typedef
+  addUser(nom: AbstractControl, prenom: AbstractControl, pseudonyme: AbstractControl, mail: AbstractControl, mdp: AbstractControl){
+    // @ts-ignore
+    return this.http.post<any>(`${environment.apiUrl}/auth/register`).subscribe(data => {
+      console.log(data);
+    });
   }
 
   // tslint:disable-next-line:typedef
@@ -51,12 +67,16 @@ export class NewUserComponent implements OnInit {
     return this.formulaire.get('mail');
   }
   // tslint:disable-next-line:typedef
-  get mdp(){
+  get mdp(): AbstractControl{
     return this.formulaire.get('password').get('mdp');
   }
   // tslint:disable-next-line:typedef
-  get confirmMdp(){
-    return this.formulaire.get('password').get('verifMdp');
+  get confirmMdp(): AbstractControl{
+    return this.formulaire.get('password').get('confirmMdp');
+  }
+
+  get password(): AbstractControl{
+    return this.formulaire.get('password');
   }
 }
 
