@@ -5,8 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../_models/user';
 import {environment} from '../../environments/environment';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
-import * as moment from 'moment';//bonjour comment va tu
-import {MessageService} from 'primeng/api';
+import * as moment from 'moment';
 import {Jeu} from '../_models/jeu';
 
 const httpOptions = {
@@ -18,8 +17,13 @@ const httpOptions = {
 })
 
 export class  JeuService{
+  jeux: Jeu[];
+  url = 'http://localhost:8000/jeux/';
+  map: Map<number, Jeu>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.map = new Map();
+  }
 
 
   getJeuHttp(): Observable<Jeu> {
@@ -40,7 +44,6 @@ export class  JeuService{
   ajoutJeu(jeu: Jeu): Observable<Jeu> {
     return this.http.post<any>(environment.apiUrl + '/jeux',
       jeu, httpOptions);
-
   }
 
   getAll(): Observable<Array<Jeu>> {
@@ -49,5 +52,6 @@ export class  JeuService{
         map(rep => rep.data.item),
         catchError(err => throwError(err))
       );
+    }
+
   }
-}

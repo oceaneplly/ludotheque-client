@@ -1,4 +1,5 @@
 export class Jeu {
+  id: number;
   nom: string;
   description: string;
   theme: string;
