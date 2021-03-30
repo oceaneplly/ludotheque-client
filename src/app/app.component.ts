@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
       },
       {
         label: 'Se connecter',
-        icon: 'pi pi-user',
+        icon: 'pi pi-lock',
         routerLink: '/login',
         routerLinkActiveOptions: { exact: true }
       },
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit{
       {
         label: 'Liste',
         icon: 'pi pi-list',
-        routerLink: '/listeJeux',
+        routerLink: '/jeux',
         routerLinkActiveOptions: { exact: true }
       },
       {
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit{
       },
       {
         label: 'Profil',
-        icon: 'pi pi-home',
+        icon: 'pi pi-user',
         routerLink: '/profile',
         routerLinkActiveOptions: { exact: true }
       },

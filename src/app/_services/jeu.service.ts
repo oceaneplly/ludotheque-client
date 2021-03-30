@@ -19,8 +19,11 @@ const httpOptions = {
 export class  JeuService{
   jeux: Jeu[];
   url = 'http://localhost:8000/jeux/';
+  map: Map<number, Jeu>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.map = new Map();
+  }
 
   getJeuHttp(): Observable<Jeu> {
     const url = 'http://localhost:8000/jeux';
@@ -36,6 +39,9 @@ export class  JeuService{
           return of([]);
         }),
       );
+  }
+  getJeu(id: number): Jeu{
+    return this.map.get(id) as Jeu;
   }
 
   // tslint:disable-next-line:typedef
