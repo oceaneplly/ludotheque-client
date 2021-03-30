@@ -29,11 +29,13 @@ import { TableModule } from 'primeng/table';
 import {JeuService} from './_services/jeu.service';
 import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
-import {Button, ButtonModule} from "primeng/button";
-import {Ripple, RippleModule} from "primeng/ripple";
-import {InputTextModule} from "primeng/inputtext";
-import {DropdownModule} from "primeng/dropdown";
+import {Button, ButtonModule} from 'primeng/button';
+import {Ripple, RippleModule} from 'primeng/ripple';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
 import { NewUserComponent } from './new-user/new-user.component';
+
+
 
 registerLocaleData(localeFr, 'fr');
 
