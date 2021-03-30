@@ -40,7 +40,7 @@
   <div class="p-formgroup-inline">
     <div class="p-field">
       <label for="categorie" class="p-sr-only">Catégorie</label>
-      <input id="categorie" type="text" pInputText placeholder="editeur" formControlName="categorie">
+      <p-dropdown id="categorie" name="categorie"  optionLabel="nom" optionValue="nom" [options]="categories" formControlName="specialite"></p-dropdown>
     </div>
   </div>
   <div class="p-formgroup-inline">

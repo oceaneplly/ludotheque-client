@@ -1,0 +1,53 @@
+<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col">
+      <label for="nom" >nom</label>
+      <input id="nom" type="text" pInputText formControlName="nom" placeholder="Nom">
+        <div *ngIf="nom?.errors?.required" style="color:crimson">Le nom est obligatoire</div>
+        <div *ngIf="nom?.errors?.minlength"  style="color:crimson">Le nom doit comporter au moins 2 caractères</div>
+      </div>
+    </div>
+  <div class="p-fluid p-formgrid p-grid">
+
+  <div class="p-field p-col">
+      <label for="prenom" >prenom</label>
+      <input id="prenom" type="text" pInputText formControlName="prenom" placeholder="Prenom">
+    <div *ngIf="prenom?.errors?.required" style="color:crimson">Le prenom est obligatoire</div>
+    <div *ngIf="prenom?.errors?.minlength"  style="color:crimson">Le prenom doit comporter au moins 2 caractères</div>
+    </div>
+  </div>
+
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col">
+      <label for="Pseudonyme" >Pseudonyme</label>
+      <input id="Pseudonyme" type="text" pInputText formControlName="pseudonyme" placeholder="Pseudonyme">
+      <div *ngIf="pseudonyme?.errors?.required" style="color:crimson">Le pseudonyme est obligatoire</div>
+      <div *ngIf="pseudonyme?.errors?.minlength"  style="color:crimson">Le pseudonyme doit comporter au moins 2 caractères</div>
+    </div>
+    <div class="p-field p-col">
+      <label for="mail" >Mail</label>
+      <input id="mail" type="text" pInputText formControlName="mail" placeholder="Mail">
+      <div *ngIf="mail?.errors?.required" style="color:crimson">Le mail est obligatoire</div>
+      <div *ngIf="mail?.errors?.pattern" style="color:crimson">Le mail doit être du type A-A@A-A.A-A </div>
+    </div>
+  </div>
+
+  <div formGroupName="password">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="mdp" >Mot de passe</label>
+        <input id="mdp" type="text" pInputText formControlName="mdp" placeholder="Mot de passe">
+        <div *ngIf="mdp?.errors?.required" style="color:crimson">Le mot de passe est obligatoire</div>
+        <div *ngIf="mdp?.errors?.pattern" style="color:crimson">Le mot de passe doit être composé d'au moins 8 charactères et d'au moins d'une majuscule et d'un nombre </div>
+
+      </div>
+      <div class="p-field p-col">
+        <label for="verifmdp" >Vérification</label>
+        <input id="verifmdp" type="text" pInputText formControlName="confirmMdp" placeholder="Vérification mot de passe">
+        <div *ngIf="mdp.invalid && mdp.touched" style="color:crimson">Les mots de passe doit être identiques </div>
+      </div>
+    </div>
+  </div>
+
+  <button pButton type="submit" label="Créer" class="p-button-outlined"></button>
+</form>

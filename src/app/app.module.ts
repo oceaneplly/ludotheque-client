@@ -29,7 +29,12 @@ import { TableModule } from 'primeng/table';
 import {JeuService} from './_services/jeu.service';
 import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
+import {Button, ButtonModule} from "primeng/button";
+import {Ripple, RippleModule} from "primeng/ripple";
 import {InputTextModule} from "primeng/inputtext";
+import {DropdownModule} from "primeng/dropdown";
+import { NewUserComponent } from './new-user/new-user.component';
+import {ButtonModule} from 'primeng/button';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -43,7 +48,9 @@ registerLocaleData(localeFr, 'fr');
     ListeJeuxComponent,
     DetailsJeuComponent,
     ListeJeuxComponent,
-    AjoutJeuxComponent
+    AjoutJeuxComponent,
+    LpSolverTestComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -55,10 +62,13 @@ registerLocaleData(localeFr, 'fr');
     ToastModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ButtonModule,
+    ReactiveFormsModule,
     MenubarModule,
     MenuModule,
     TableModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},
