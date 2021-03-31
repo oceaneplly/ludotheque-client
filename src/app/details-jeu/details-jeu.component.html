@@ -1,1 +1,26 @@
-<p>{{jeu.description}}</p>
+<p-card header="{{jeu.nom}}" class="p-mr-4 p-mb-4">
+  <div class="row">
+  <div class="p-col-3">
+    <i class="pi pi-user icon"></i>
+    <span>{{jeu.age}}</span>
+  </div>
+  <div class="p-col-3">
+    <span>{{jeu.theme}}</span>
+  </div>
+    <div class="p-col-3">
+      <span>{{jeu.poids}}</span>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li>{{jeu.description}}</li>
+      <li>{{jeu.categorie}}</li>
+      <li>{{jeu.langue}}</li>
+      <li>{{jeu.age}}</li>
+      <li>{{jeu.regles}}</li>
+      <li>{{jeu.duree}}</li>
+      <li>{{jeu.mecanique}}</li>
+      <li>{{jeu.editeur}}</li>
+    </ul>
+  </div>
+</p-card>

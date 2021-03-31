@@ -1,93 +1,92 @@
-<form [formGroup]="formulaire" (ngSubmit)="ajoutJeu()">
-  <div class="p-formgroup-inline">
-    <div class="p-field">
-      <label for="nom" class="p-sr-only">Nom</label>
-      <input id="nom" type="text" pInputText placeholder="Nom" formControlName="nom">
-
-
-      </div>
-    </div>
-  <div class="p-formgroup-inline">
-    <div class="p-field">
-      <label for="description" class="p-sr-only">Description</label>
-      <input id="description" type="text" pInputText placeholder="Description" formControlName="description">
-
-
-      </div>
-    </div>
-
-  <div class="p-formgroup-inline">
-    <div class="p-field">
-      <label for="theme" class="p-sr-only">Thème</label>
-      <input id="theme" type="text" pInputText placeholder="Thème" formControlName="theme">
-
+<div class="p-fluid p-formulairegrid p-grid" [formGroup]="formulaire" >
+  <div class="p-field p-col">
+    <label for="name">Nom</label>
+    <input id="name" type="text" pInputText formulaireControlName="nom">
+    <div *ngIf="formulaire.get('nom').invalid && formulaire.get('nom').touched" class="card-panel red accent-1">
+      Erreur
     </div>
   </div>
-  <div class="p-formgroup-inline">
-    <div class="p-field">
-      <label for="editeur" class="p-sr-only">Editeur</label>
-      <input id="editeur" type="text" pInputText placeholder="Editeur" formControlName="editeur">
+  <div class="p-field p-col">
+    <label for="description">Description</label>
+    <input id="description" type="text" pInputText formulaireControlName="description">
+    <div *ngIf="formulaire.get('description').invalid && formulaire.get('description').touched" class="card-panel red accent-1">
+      Erreur
     </div>
   </div>
-  <div class="p-formgroup-inline">
-
-    <div class="p-field">
-      <label for="url_media" class="p-sr-only">URL</label>
-      <input id="url_media" type="text" pInputText placeholder="URL_media" formControlName="url_media">
-
+  <div class="p-field p-col">
+    <label for="theme">Theme</label>
+    <select id="theme" formulaireControlName="theme"  >
+      <option *ngFor="let theme of themes" [value]="theme.id" >{{ theme.nom }}</option>
+    </select>
+  </div>
+  <div class="p-field p-col">
+    <label for="editeur">Editeur</label>
+    <select id="editeur" formulaireControlName="editeur"  >
+      <option *ngFor="let editeur of editeurs" [value]="editeur.id" >{{ editeur.nom }}</option>
+    </select>
+  </div>
+  <div class="p-field p-col">
+    <label for="mecanique">Mecanique</label>
+    <select id="mecanique" formulaireControlName="mecanique">
+      <option *ngFor="let mecanique of mecaniques" [value]="mecanique.id" >{{ mecanique.nom }}</option>
+    </select>
+  </div>
+  <div class="p-field p-col">
+    <label for="url_media">Url Media</label>
+    <input id="url_media" type="text" pInputText formulaireControlName="url_media">
+    <div *ngIf="formulaire.get('url_media').invalid && formulaire.get('url_media').touched" class="card-panel red accent-1">
+      Erreur
     </div>
   </div>
-  <div class="p-formgroup-inline">
-    <div class="p-field">
-      <label for="categorie" class="p-sr-only">Catégorie</label>
-      <p-dropdown id="categorie" name="categorie"  optionLabel="nom" optionValue="nom" [options]="categories" formControlName="specialite"></p-dropdown>
+  <div class="p-field p-col">
+    <label for="categories">Categorie</label>
+    <input id="categories" type="text" pInputText formulaireControlName="categorie">
+    <div *ngIf="formulaire.get('categorie').invalid && formulaire.get('categorie').touched" class="card-panel red accent-1">
+      Erreur
     </div>
   </div>
-  <div class="p-formgroup-inline">
-
-    <div class="p-field">
-      <label for="regles" class="p-sr-only">Règles</label>
-      <input id="regles" type="text" pInputText placeholder="regle" formControlName="regles">
-    </div>
-
-  </div>
-  <div class="p-formgroup-inline">
-
-    <div class="p-field">
-      <label for="langue" class="p-sr-only">Langue</label>
-      <input id="langue" type="text" pInputText placeholder="langue" formControlName="langue">
+  <div class="p-field p-col">
+    <label for="regle">Regle</label>
+    <input id="regle" type="text" pInputText formulaireControlName="regle">
+    <div *ngIf="formulaire.get('nom').invalid && formulaire.get('nom').touched" class="card-panel red accent-1">
+      Erreur
     </div>
   </div>
-  <div class="p-formgroup-inline">
+  <div class="p-field p-col">
+    <label for="langue">Langue</label>
+    <input id="langue" type="text" pInputText formulaireControlName="langue">
+    <div *ngIf="formulaire.get('langue').invalid && formulaire.get('langue').touched" class="card-panel red accent-1">
+      Erreur
+    </div>
+  </div>
+  <div class="p-field p-col">
+    <label for="nb_player">Nombre de joueur</label>
+    <input id="nb_player" type="number" pInputText formulaireControlName="nombre_joueur">
+    <div *ngIf="formulaire.get('nombre_joueur').invalid && formulaire.get('nombre_joueur').touched" class="card-panel red accent-1">
+      Erreur
+    </div>
+  </div>
+  <div class="p-field p-col">
+    <label for="age">Age</label>
+    <input id="age" type="number" pInputText formulaireControlName="age">
+    <div *ngIf="formulaire.get('age').invalid && formulaire.get('age').touched" class="card-panel red accent-1">
+      Erreur
+    </div>
+  </div>
+  <div class="p-field p-col">
+    <label for="poids">Poids</label>
+    <input id="poids" type="number" pInputText formulaireControlName="poids">
+    <div *ngIf="formulaire.get('poids').invalid && formulaire.get('poids').touched" class="card-panel red accent-1">
+      Erreur
+    </div>
+  </div>
+  <div class="p-field p-col">
+    <label for="duree">duree</label>
+    <input id="duree" type="number" pInputText formulaireControlName="duree">
+    <div *ngIf="formulaire.get('duree').invalid && formulaire.get('duree').touched" class="card-panel red accent-1">
+      Erreur
+    </div>
+  </div>
 
-  <div class="p-field">
-    <label for="nbJoueurs" class="p-sr-only">Nombre de joueurs (entre 2 et 8)</label>
-    <input id="nbJoueurs" type="text" pInputText placeholder="nbJoueurs" formControlName="nbJoueurs">
-  </div>
-  </div>
-  <div class="p-formgroup-inline">
-
-  <div class="p-field">
-    <label for="age" class="p-sr-only">Age minimum (entre 1 et 16)</label>
-    <input id="age" type="text" pInputText placeholder="age" formControlName="age">
-
-  </div>
-  </div>
-  <div class="p-formgroup-inline">
-
-  <div class="p-field">
-    <label for="poids" class="p-sr-only">Poids (entre .100 et 5.00 hg)</label>
-    <input id="poids" type="text" pInputText placeholder="poids" formControlName="poids">
-
-  </div>
-  </div>
-  <div class="p-formgroup-inline">
-
-  <div class="p-field">
-    <label for="duree" class="p-sr-only">Durée</label>
-    <input id="duree" type="text" pInputText placeholder="duree" formControlName="duree">
-
-  </div>
-  </div>
-  <button pButton type="submit" label="Valide"></button>
-</form>
+  <button (click)="ajoutJeu()">Valider</button>
+</div>

@@ -10,14 +10,12 @@ import {ListeJeuxComponent} from "../liste-jeux/liste-jeux.component";
   styleUrls: ['./details-jeu.component.css']
 })
 export class DetailsJeuComponent implements OnInit {
-  jeu:Jeu;
+  @Input() jeu: Jeu;
 
-  constructor(private route: ActivatedRoute, private jeuService: JeuService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    console.log(this.jeu);
   }
 
 }
