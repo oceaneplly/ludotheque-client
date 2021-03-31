@@ -19,9 +19,9 @@
       <li>Âge : {{jeu.age}} ans</li>
       <li>Règles : {{jeu.regles}}</li>
       <li>Durée : {{jeu.duree}} minutes</li>
-      <li>Mécanique : {{jeu.mecanique}}</li>
+      <li>Mécanique : {{jeu.mecaniques.toString()}}</li>
       <li>Éditeur : {{jeu.editeur_id.nom}}</li>
-      <li>Commentaires : </li>
+      <li>Commentaires :</li>
     </ul>
   </div>
   <div *ngIf="authService.isLoggedIn$ | async">

@@ -4,7 +4,7 @@ import {Mecanique} from "./mecanique";
 
 export interface Jeu {
   id: number;
-  mecanique: Mecanique;
+  mecaniques: Mecanique;
   nom: string;
   url: string;
   description: string;

@@ -39,8 +39,7 @@ import {Rating, RatingModule} from 'primeng/rating';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {SplitButton, SplitButtonModule} from 'primeng/splitbutton';
 import { DatePipe } from '@angular/common';
-
-
+import { CommentairesComponent } from './commentaires/commentaires.component';
 
 
 registerLocaleData(localeFr, 'fr');
@@ -57,7 +56,8 @@ registerLocaleData(localeFr, 'fr');
     ListeJeuxComponent,
     AjoutJeuxComponent,
     LpSolverTestComponent,
-    NewUserComponent
+    NewUserComponent,
+    CommentairesComponent
   ],
   imports: [
     BrowserModule,
