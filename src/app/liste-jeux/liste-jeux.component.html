@@ -1,21 +1,21 @@
 <br>
-<div class="p-d-inline-flex" xmlns="http://www.w3.org/1999/html">
+<div class="p-d-inline-flex" xmlns="http://www.w3.org/1999/html" [style]="{marginLeft:'35%'}">
   <br>
-  <p-multiSelect [options]="tableauTheme" [(ngModel)]="selectTheme" optionDisabled="inactive" defaultLabel="Choisir un thème" optionLabel="name" (onChange)="filtrageCoursTheme()"></p-multiSelect>
+  <p-multiSelect [options]="tableauTheme" [(ngModel)]="selectTheme" [style]="{padding:'5px',margin:'10px'}" optionDisabled="inactive" defaultLabel="Choisir un thème" optionLabel="name" (onChange)="filtrageCoursTheme()"></p-multiSelect>
+  <br>
+  <p-multiSelect [options]="tableauAge" [style]="{padding:'5px',margin:'10px'}" [(ngModel)]="selectAge" optionDisabled="inactive" defaultLabel="Choisir un âge" optionLabel="name" (onChange)="filtrageCoursAge()"></p-multiSelect>
   <br>
   <br>
-  <p-multiSelect [options]="tableauAge" [(ngModel)]="selectAge" optionDisabled="inactive" defaultLabel="Choisir un âge" optionLabel="name" (onChange)="filtrageCoursAge()"></p-multiSelect>
-  <br>
-  <br>
+  <div *ngIf="!filtrage">
+    <p-button label="Tri" icon="{{tri}}" (onClick)="onTri()" [style]="{padding:'15px',margin:'5px',backgroundColor:'var(--teal-100)', border:'var(--teal-100)',color:'black'}"></p-button>
+  </div>
+
 </div>
 
 <div *ngIf="jeuSelectionne">
   <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
 </div>
 <div *ngIf="!filtrage">
-  <br>
-  <p-button label="Tri" icon="{{tri}}" (onClick)="onTri()"></p-button>
-  <br>
   <br>
 <p-table [value]="jeux" (onRowUnselect)="jeuSelectionne=undefined">
   <ng-template pTemplate="header">
@@ -51,7 +51,7 @@
         <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="onRowUnselect()"></button>
         </div>
         <div *ngIf="jeuSelectionne===undefined">
-          <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+          <button type="button" pButton pRipple icon="pi pi-eye" (click)="onRowSelect(jeu)"></button>
         </div>
       </td>
     </tr>
@@ -84,7 +84,7 @@
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>
-        <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+        <button type="button" pButton pRipple icon="pi pi-eye" [style]="{backgroundColor:'indigo-800'}" (click)="onRowSelect(jeu)"></button>
       </td>
     </tr>
   </ng-template>
