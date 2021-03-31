@@ -6,7 +6,7 @@
       <span> {{jeu.nombre_joueurs}} joueurs</span>
     </div>
     <div class="p-col-3">
-      <!--   <span>Thème : {{jeu.theme_id.nom}}</span> -->
+         <span>Thème : {{jeu.theme_id.nom}}</span>
     </div>
     <div class="p-col-3">
       <span>Poids : {{jeu.poids}} kg</span>
@@ -22,10 +22,10 @@
       <li>Durée : {{jeu.duree}}</li>
       <li>Mécanique :
         <div *ngFor="let meca of jeu.mecaniques">
-          <!--      <p>{{meca.nom}}</p> -->
+                <p>{{meca.nom}}</p>
            </div>
          </li>
-      <!--    <li>Éditeur : {{jeu.editeur_id.nom}}</li> -->
+          <li>Éditeur : {{jeu.editeur_id.nom}}</li>
        <li>Commentaires :
          <!--        <div *ngFor="let com of jeu.commentaires">-->
         <!--          Note : {{com.note}}-->
