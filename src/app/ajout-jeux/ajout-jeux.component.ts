@@ -22,7 +22,7 @@ export class AjoutJeuxComponent implements OnInit {
   jeu: Jeu;
 
 
-  constructor(private messageService: MessageService, public jeuService: JeuService) {
+  constructor(public messageService: MessageService, public jeuService: JeuService) {
   }
 
   ngOnInit(): void {

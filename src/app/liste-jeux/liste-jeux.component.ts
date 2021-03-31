@@ -28,7 +28,6 @@ export class ListeJeuxComponent implements OnInit {
     poids: 0,
     regles: '',
     theme_id: undefined,
-    commentaires: undefined
   };
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;

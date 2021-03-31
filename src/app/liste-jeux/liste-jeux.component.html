@@ -73,7 +73,7 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-jeu>
-    <tr>
+    <tr [ngClass]="{'kid': jeu.age<8, 'ado': (jeu.age> 9 && jeu.age < 18),'adult': jeu.age >= 18}" [style]="{border:('black')}">
       <td>{{jeu.id}}</td>
       <td>{{jeu.nom}}</td>
       <td>

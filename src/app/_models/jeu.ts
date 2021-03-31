@@ -19,5 +19,4 @@ export interface Jeu {
   editeur_id: Editeur;
   note: number;
   nombre_joueurs: number;
-  commentaires;
 }
