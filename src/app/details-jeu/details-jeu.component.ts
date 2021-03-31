@@ -13,7 +13,7 @@ import {AuthentificationService} from "../_services/authentification.service";
 export class DetailsJeuComponent implements OnInit {
   @Input() jeu: Jeu;
 
-  constructor(public authService: AuthentificationService) {
+  constructor(public authService: AuthentificationService, public component: ListeJeuxComponent) {
   }
 
   ngOnInit(): void {
