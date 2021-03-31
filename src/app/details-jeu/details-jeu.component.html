@@ -23,5 +23,38 @@
       <li>Éditeur : {{jeu.editeur}}</li>
       <li> Commentaires : </li>
     </ul>
+
+    <p-dialog header="Title" [(visible)]="display">
+      <form [formGroup]="formulaire" >
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col">
+            <label for="lieu" >Lieu de stockage</label>
+            <input id="lieu" type="text" pInputText class="form-control" formControlName="lieu" placeholder="lieu">
+            <div *ngIf="lieu?.errors?.required" style="color:crimson">Le lieu est obligatoire</div>
+            <div *ngIf="lieu?.errors?.minlength"  style="color:crimson">Le lieu doit comporter au moins 2 caractères</div>
+          </div>
+        </div>
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col">
+            <label for="date_achat" >Date d'achat</label>
+            <input id="date_achat" type="date" pInputText class="form-control" formControlName="date_achat" placeholder="date_achat">
+            <div *ngIf="date_achat?.errors?.required" style="color:crimson">La date est obligatoire</div>
+            <div *ngIf="date_achat?.errors?.minlength"  style="color:crimson">La date doit être du type JJ/MM/AA</div>
+          </div>
+        </div>
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col">
+            <label for="prix" >Prix d'achat</label>
+            <input id="prix" type="text" pInputText class="form-control" formControlName="prix" placeholder="prix">
+            <div *ngIf="prix?.errors?.required" style="color:crimson">Le prix du jeu est obligatoire</div>
+            <div *ngIf="prix?.errors?.minlength"  style="color:crimson">Le prix doit étre positif</div>
+          </div>
+        </div>
+        <button type="button" pButton pRipple icon="pi pi-wallet" (click)="ajouetAchat()" label="Acheter"></button>
+      </form>
+    </p-dialog>
+
+    <button type="button" pButton pRipple icon="pi pi-wallet" (click)="showDialog()" label="Acheter"></button>
   </div>
 </p-card>
+

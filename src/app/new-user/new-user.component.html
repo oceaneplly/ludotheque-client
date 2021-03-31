@@ -49,11 +49,9 @@
       </div>
     </div>
   </div>
-
+  <div class="form-group">
+    <label for="rgpd" >Etes vous alright ?</label>
+    <input id="rgpd" type="checkbox" pInputText class="form-control" formControlName="rgpd" >
+  </div>
   <button pButton [disabled]="!formulaire.valid" type="submit" label="Créer" routerLink="/login" class="p-button-outlined" (click)="addUser()"></button>
 </form>
-
-
-
-
-

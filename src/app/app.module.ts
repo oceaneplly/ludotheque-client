@@ -40,6 +40,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
 
 
 import {SplitButton, SplitButtonModule} from "primeng/splitbutton";
+import {DialogModule} from "primeng/dialog";
+import {CheckboxModule} from "primeng/checkbox";
 
 
 
@@ -79,7 +81,9 @@ registerLocaleData(localeFr, 'fr');
     CardModule,
     RatingModule,
     FormsModule,
-    MultiSelectModule
+    MultiSelectModule,
+    DialogModule,
+    CheckboxModule
   ],
   providers: [AuthentificationService, MessageService,
     {provide: LOCALE_ID, useValue: 'fr-FR'},

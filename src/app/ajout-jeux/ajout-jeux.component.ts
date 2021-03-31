@@ -6,6 +6,9 @@ import {Editeur} from '../_models/editeur';
 import {Theme} from '../_models/theme';
 import {Mecanique} from '../_models/mecanique';
 import {MessageService} from 'primeng/api';
+import {DialogModule} from 'primeng/dialog';
+
+
 @Component({
   selector: 'app-ajout-jeux',
   templateUrl: './ajout-jeux.component.html',

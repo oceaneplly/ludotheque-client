@@ -24,6 +24,7 @@ export class NewUserComponent implements OnInit {
     prenom: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
     pseudonyme: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
     mail: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]),
+    rgpd: new FormControl('', [Validators.requiredTrue]),
 
     password: new FormGroup({
       mdp: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*\\d).{8,}')]),
@@ -38,7 +39,6 @@ export class NewUserComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addUser(){
-    // @ts-ignore
     return this.http.post<any>(`${environment.apiUrl}/auth/register`, {
       nom: this.formulaire.get("nom").value,
       prenom: this.formulaire.get("prenom").value,
