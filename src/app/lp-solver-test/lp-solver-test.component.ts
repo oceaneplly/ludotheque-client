@@ -11,27 +11,37 @@ declare var solver: any;
 export class LpSolverTestComponent implements OnInit {
 
 
-  readonly probleme = {
+  readonly sacAdos = {
     variables: {
-      s1: {
-        p1: 5,
-        p2: 8,
-        p3: 5,
-        benefice: 4.2
+      o1: {
+        p: 12,
+        benefice: 10
       },
-      s2: {
-        p1: 7,
-        p2: 3,
-        p3: 8,
-        benefice: 5.1
-      }
+      o2: {
+        p: 11,
+        benefice: 10
+      },
+      o3: {
+        p: 7,
+        benefice: 15
+      },
+      o4: {
+        p: 25,
+        benefice: 32
+      },
+      o5: {
+        p: 10,
+        benefice: 7
+      },
+      o6: {
+        p: 5,
+        benefice: 7
+      },
     },
-    ints: {s1: 1, s2: 1},
-    binaries: {},
+    ints: {},
+    binaries: {o1 : 1, o2: 1, o3: 1, o4: 1, o5: 1, o6: 1},
     constraints: {
-      p1: {max: 200},
-      p2: {max: 250},
-      p3: {max: 220}
+      p : {max: 40}
     },
     opType: 'max',
     optimize: 'benefice'
@@ -44,12 +54,30 @@ export class LpSolverTestComponent implements OnInit {
   }
 
   resolutionProbleme(): void {
-    const resultat = solver.Solve(this.probleme);
+    const resultat = solver.Solve(this.sacAdos);
     console.log(resultat);
-    const nbS1 = resultat.s1;
-    const nbS2 = resultat.s2;
+
+    let affiche = `Solution : `;
+    if (resultat.o1 !== undefined){
+      affiche += 'o1,  ' ;
+    }
+    if (resultat.o2 !== undefined){
+      affiche += 'o2,  '  ;
+    }
+    if (resultat.o3 !== undefined){
+      affiche += 'o3,  '  ;
+    }
+    if (resultat.o4 !== undefined){
+      affiche += 'o4,  '  ;
+    }
+    if (resultat.o5 !== undefined){
+      affiche += 'o5,  '  ;
+    }
+    if (resultat.o6 !== undefined){
+      affiche += 'o6,  ' ;
+    }
     const beneficeTotal = resultat.result;
-    const affiche = `Solution : Sachets S1 :  ${nbS1}, Sachets S2 : ${nbS2}, Bénéfice : ${beneficeTotal}`;
+    affiche += `Bénéfice : ${beneficeTotal}`;
     this.messageService.add({
       key: 'main',
       severity: 'info',

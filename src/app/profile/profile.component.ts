@@ -38,6 +38,9 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+  toColisPostal(): void{
+    this.router.navigateByUrl('/colisPostal');
+  }
 
   onRowSelect(jeu: Jeu) {
     this.jeuSelectionne = jeu;

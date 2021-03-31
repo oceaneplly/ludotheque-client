@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {ListeJeuxComponent} from './liste-jeux/liste-jeux.component';
 import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
+import {ColisPostalComponent} from './colis-postal/colis-postal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'new-user', component: NewUserComponent},
-  {path: 'ro', component: LpSolverTestComponent},
+  {path: 'colisPostal', component: ColisPostalComponent},
   {path: '**', component: HomeComponent},
 
 ];
