@@ -7,7 +7,7 @@
       <input id="name" type="text" pInputText formControlName="nom">
 
       <div *ngIf="formulaire.get('nom')?.errors?.required && formulaire.get('nom').touched" style="color:crimson">Le nom est obligatoire</div>
-      <div *ngIf="formulaire.get('nom')?.errors?.minlength && formulaire.get('nom').touched" style="color:crimson">Le nom du jeu doit au moins contenir 2 caractères </div>
+      <div *ngIf="formulaire.get('nom')?.errors?.minlength && formulaire.get('nom').touched" style="color:crimson">Le nom du jeu doit au moins contenir 10 caractères </div>
       <div *ngIf="formulaire.get('nom')?.errors?.maxlength && formulaire.get('nom').touched" style="color:crimson">Le nom du jeu doit au plus contenir 100 caractères </div>
 
     </div>
@@ -17,8 +17,6 @@
         <label for="description">Description</label>
         <input id="description" type="text" pInputText formControlName="description">
         <div *ngIf="formulaire.get('description')?.errors?.required && formulaire.get('description').touched" style="color:crimson">La description est obligatoire</div>
-        <div *ngIf="formulaire.get('description')?.errors?.minlength && formulaire.get('description').touched" style="color:crimson">La description doit au moins contenir 2 caractères </div>
-        <div *ngIf="formulaire.get('description')?.errors?.maxlength && formulaire.get('description').touched" style="color:crimson">La description doit au plus contenir 1000 caractères </div>
 
       </div>
     </div>
@@ -74,8 +72,7 @@
       <div class="p-field p-col-10">
         <label for="regle">Règles</label>
         <input id="regle" type="text" pInputText formControlName="regle">
-        <div *ngIf="formulaire.get('regle')?.errors?.minlength && formulaire.get('regle').touched" style="color:crimson">Les règles doivent au moins contenir 5 caractères </div>
-        <div *ngIf="formulaire.get('regle')?.errors?.maxlength && formulaire.get('regle').touched" style="color:crimson">Les règles doivent au plus contenir 200 caractères </div>
+        <div *ngIf="formulaire.get('regle')?.errors?.required && formulaire.get('regle').touched" style="color:crimson">Les règles sont obligatoires</div>
 
       </div>
     </div>
@@ -94,7 +91,7 @@
           <label for="nb_player">Nombre de joueur</label>
           <input id="nb_player" type="number" pInputText formControlName="nb_player">
           <div *ngIf="formulaire.get('nb_player').invalid && formulaire.get('nb_player').touched" class="card-panel red accent-1">
-            Veuillez saisir une valeur entre 2 et 12
+            Veuillez saisir une valeur entre 2 et 8
           </div>
         </div>
       </div>
@@ -104,7 +101,7 @@
           <label for="age">Age</label>
           <input id="age" type="number" pInputText formControlName="age">
           <div *ngIf="formulaire.get('age').invalid && formulaire.get('age').touched" class="card-panel red accent-1">
-            Veuillez saisir une valeur entre 4 et 18
+            Veuillez saisir une valeur entre 1 et 16
           </div>
         </div>
       </div>
@@ -114,7 +111,7 @@
           <label for="poids">Poids</label>
           <input id="poids" type="number" pInputText formControlName="poids">
           <div *ngIf="formulaire.get('poids').invalid && formulaire.get('poids').touched" class="card-panel red accent-1">
-            Veuillez saisir une valeur entre 0 et 50
+            Veuillez saisir une valeur entre 0.1 et 5.0
           </div>
         </div>
       </div>
