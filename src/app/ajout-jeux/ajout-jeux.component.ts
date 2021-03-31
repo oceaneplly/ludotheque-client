@@ -67,7 +67,7 @@ export class AjoutJeuxComponent implements OnInit {
         });
       }
     );
-
+    
     this.jeuService.getMecaniques().subscribe(
       mecaniques => {
         this.mecaniques = mecaniques;
