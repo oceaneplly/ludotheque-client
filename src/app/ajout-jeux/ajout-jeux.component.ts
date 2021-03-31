@@ -2,62 +2,95 @@ import { Component, OnInit } from '@angular/core';
 import { JeuService} from '../_services/jeu.service'  ;
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Jeu} from '../_models/jeu';
-
-interface Theme {
-  nom: string;
-}
-
-interface Editeur {
-  nom: string;
-}
-
-interface Categorie {
-  nom: string;
-}
-
+import {Editeur} from '../_models/editeur';
+import {Theme} from '../_models/theme';
+import {Mecanique} from '../_models/mecanique';
+import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-ajout-jeux',
   templateUrl: './ajout-jeux.component.html',
   styleUrls: ['./ajout-jeux.component.css']
 })
 export class AjoutJeuxComponent implements OnInit {
-  jeu: Jeu = {id:0, url:"", age: 0, categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
-  themes: Theme[] = [ {nom: 'Abstrait, lettres & mots'}, {nom: 'Animaux & Nature'}, {nom: 'Autres'}, {nom: 'Cartoon & Dessin'},
-    {nom: 'Enfance & Contes'}, {nom: 'Fantastique & Héroïc Fantasy'}, {nom: 'Histoire & Antiquité'}, {nom: 'Horreur & Post-Apocalytique'},
-    {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];
+  formulaire: FormGroup;
+  themes: Theme[];
+  mecaniques: Mecanique[];
+  editeurs: Editeur[];
+  jeu: Jeu;
 
-  editeurs: Editeur[] = [ {nom: '1-2-3-Games'}, {nom: '1A Games'}, {nom: '2d Sans Faces'}, {nom: '404 Editions'},
-    {nom: '4Dados'}, {nom: '7ème Cercle'}, {nom: 'Abacus Spiele'}, {nom: 'Horreur & Post-Apocalytique'},
-    {nom: 'Loisirs & Voyage'}, {nom: 'Moderne & Réaliste'}, {nom: 'Pirates & Cow-boys'}, {nom: 'Science Fiction & Future' }];
 
-  categories: Categorie[] = [ {nom: 'Abstrait'}, {nom: 'Humour'}, {nom: 'Jeu de plateau'}, {nom: 'Enquêtes & Mystères'},
-    {nom: 'Antiquité'}, {nom: 'Western'}, {nom: 'Jeu de Cartes'}, {nom: 'Connaissances'},
-    {nom: 'jeu de tuiles'}, {nom: 'Lettres'}, {nom: 'Politique'}, {nom: 'Dessin' }, {nom: 'Mime'},
-    {nom: 'Zombies'}, {nom: 'Contes' }, {nom: 'Observation'}, {nom: 'Bande dessinée'}, {nom: 'Animaux' }, {nom: 'Affrontement'},
-    {nom: 'Commerce'}, {nom: 'Jeu de rôle' }, {nom: 'Chance & Hasard'}, {nom: 'Cuisine'}, {nom: 'Bourse & finances' }, {nom: 'Divers'},
-    {nom: 'Histoire'}, {nom: 'choix multiples' }, {nom: 'Jeu d\'Ambiance'}, {nom: 'Chiffres'}, {nom: 'Lettres & chiffres' }];
-    formulaire: FormGroup = new FormGroup({
-    nom: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    description: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    theme: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    editeur: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    url_media: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    langue: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    age : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    poids : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    nbJoueurs : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    categorie : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    duree : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
-    regles : new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1000)])
-  });
-  constructor(public jeuService: JeuService) { }
+  constructor(private messageService: MessageService, public jeuService: JeuService) {
+  }
 
   ngOnInit(): void {
-  }
-  ajoutJeu(): void {
-    this.jeu =  {...this.jeu, ...this.formulaire.value};
-    console.log(this.jeu);
-    this.jeuService.ajoutJeu(this.jeu).subscribe(rep => console.log(rep));
+    this.formulaire = new FormGroup({
+      nom: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
+      description: new FormControl('', Validators.required),
+      theme: new FormControl(1, Validators.required),
+      editeur: new FormControl(1, Validators.required),
+      mecanique: new FormControl(1, Validators.required),
+      url_media: new FormControl(''),
+      categorie: new FormControl('', Validators.required),
+      regle: new FormControl('', Validators.required),
+      langue: new FormControl('', Validators.required),
+      nombre_joueur: new FormControl(2, [Validators.required, Validators.min(2), Validators.max(8)]),
+      age: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(16)]),
+      poids: new FormControl(0.1, [Validators.required, Validators.min(0.1), Validators.max(5.00)]),
+      duree: new FormControl(0, Validators.required)
+    });
+
+
+    this.jeuService.getThemes().subscribe(
+      themes => {
+        this.themes = themes;
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
+      }
+    );
+    this.jeuService.getEditeurs().subscribe(
+      editeurs => {
+        this.editeurs = editeurs;
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
+      }
+    );
+    this.jeuService.getMecaniques().subscribe(
+      mecaniques => {
+        this.mecaniques = mecaniques;
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Erreur',
+          detail: 'impossible d\'obtenir la liste des jeux',
+          key: 'main'
+        });
+      }
+    );
   }
 
+  ajoutJeu(): void {
+    this.jeu = {
+      ...this.jeu, ...this.formulaire.value
+
+
+    };
+    this.jeuService.ajoutJeu(this.jeu).subscribe(res => {
+      console.log(res);
+    });
+
+
+  }
 }

@@ -1,5 +1,6 @@
-export class Jeu {
+export interface Jeu {
   id: number;
+  mecanique: string;
   nom: string;
   url: string;
   description: string;
@@ -10,4 +11,7 @@ export class Jeu {
   categorie: string;
   duree: string;
   regles: string;
+  editeur: string;
+  note: number;
+  nombrejoueurs: number;
 }

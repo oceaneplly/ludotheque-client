@@ -1,3 +1,4 @@
+// @ts-ignore
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AjoutJeuxComponent } from './ajout-jeux.component';
@@ -6,12 +7,12 @@ describe('AjoutJeuxComponent', () => {
   let component: AjoutJeuxComponent;
   let fixture: ComponentFixture<AjoutJeuxComponent>;
 
-  beforeEach(async () => {
+  // @ts-ignore
+  beforeEach(async () =>
     await TestBed.configureTestingModule({
-      declarations: [ AjoutJeuxComponent ]
+      declarations: [AjoutJeuxComponent]
     })
-    .compileComponents();
-  });
+      .compileComponents());
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AjoutJeuxComponent);
