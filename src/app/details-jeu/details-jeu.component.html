@@ -2,7 +2,7 @@
   <div class="row">
   <div class="p-col-3">
     <i class="pi pi-user icon"></i>
-    <span>{{jeu.nombrejoueurs}} joueurs</span>
+    <span> {{jeu.nombre_joueurs}} joueurs</span>
   </div>
   <div class="p-col-3">
     <span>Thème : {{jeu.theme_id.nom}}</span>
@@ -16,12 +16,12 @@
       <li>Description : {{jeu.description}}</li>
       <li>Catégorie : {{jeu.categorie}}</li>
       <li>Langue : {{jeu.langue}}</li>
-      <li>Âge : {{jeu.age}}</li>
+      <li>Âge : {{jeu.age}} ans</li>
       <li>Règles : {{jeu.regles}}</li>
-      <li>Durée : {{jeu.duree}}</li>
+      <li>Durée : {{jeu.duree}} minutes</li>
       <li>Mécanique : {{jeu.mecanique}}</li>
-      <li>Éditeur : {{jeu.editeur}}</li>
-      <li> Commentaires : </li>
+      <li>Éditeur : {{jeu.editeur_id.nom}}</li>
+      <li>Commentaires : </li>
     </ul>
   </div>
   <div *ngIf="authService.isLoggedIn$ | async">

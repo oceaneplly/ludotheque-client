@@ -15,7 +15,7 @@ export interface Jeu {
   categorie: string;
   duree: string;
   regles: string;
-  editeur: Editeur;
+  editeur_id: Editeur;
   note: number;
-  nombrejoueurs: number;
+  nombre_joueurs: number;
 }

@@ -14,10 +14,10 @@ import {ViewportScroller} from '@angular/common';
 export class ListeJeuxComponent implements OnInit {
   jeu: Jeu = {
     id: 0,
-    nombrejoueurs: 0,
+    nombre_joueurs: 0,
     note: 0,
     mecanique: undefined,
-    editeur: undefined,
+    editeur_id: undefined,
     age: 0,
     url: '',
     categorie: '',
@@ -65,8 +65,8 @@ export class ListeJeuxComponent implements OnInit {
       });
     });
     this.tri = '';
-    this.filtrage=false;
-    this.tableauJeu=[];
+    this.filtrage = false;
+    this.tableauJeu = [];
   }
 
   // tslint:disable-next-line:typedef
@@ -103,7 +103,7 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   contenirAge(id: any): boolean {
-    let verif: boolean = false;
+    let verif = false;
     this.tableauAge.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
@@ -113,7 +113,7 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   contenirAge1(id: any): boolean {
-    let verif: boolean = false;
+    let verif = false;
     this.selectAge.forEach((x: any) => {
       if (x.name === id) {
         console.log(this.selectAge);
@@ -124,7 +124,7 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   contenirTheme(id: any): boolean {
-    let verif: boolean = false;
+    let verif = false;
     this.tableauTheme.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
@@ -134,7 +134,7 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   contenirTheme1(id: any): boolean {
-    let verif: boolean = false;
+    let verif = false;
     this.selectTheme.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
@@ -144,29 +144,31 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   filtrageCoursAge(): void {
-    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
-      this.filtrage=false;
+    if (this.selectAge.length == 0 && this.selectTheme.length == 0 && this.selectNombre.length == 0 && this.selectEditeur.length == 0) {
+      this.filtrage = false;
     }
     else {
-      this.tableauJeu=[];
+      this.tableauJeu = [];
       this.jeux.forEach((x: Jeu) => {
         this.filtrage = true;
-        if (this.contenirAge1(x.age))
+        if (this.contenirAge1(x.age)) {
           this.tableauJeu.push(x);
+        }
         }
       );
     }}
 
   filtrageCoursTheme(): void {
-    if(this.selectAge.length==0 && this.selectTheme.length==0) {
-      this.filtrage=false;
+    if (this.selectAge.length == 0 && this.selectTheme.length == 0) {
+      this.filtrage = false;
     }
     else {
-      this.tableauJeu=[];
+      this.tableauJeu = [];
       this.jeux.forEach((x: Jeu) => {
           this.filtrage = true;
-          if (this.contenirTheme1(x.theme_id.nom))
+          if (this.contenirTheme1(x.theme_id.nom)) {
             this.tableauJeu.push(x);
+          }
         }
       );
     }}
