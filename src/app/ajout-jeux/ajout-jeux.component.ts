@@ -53,6 +53,7 @@ export class AjoutJeuxComponent implements OnInit {
         });
       }
     );
+
     this.jeuService.getEditeurs().subscribe(
       editeurs => {
         this.editeurs = editeurs;
@@ -66,6 +67,7 @@ export class AjoutJeuxComponent implements OnInit {
         });
       }
     );
+
     this.jeuService.getMecaniques().subscribe(
       mecaniques => {
         this.mecaniques = mecaniques;
