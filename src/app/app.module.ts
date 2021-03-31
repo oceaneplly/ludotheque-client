@@ -34,13 +34,11 @@ import {Ripple, RippleModule} from 'primeng/ripple';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import { NewUserComponent } from './new-user/new-user.component';
-import {Card, CardModule} from "primeng/card";
-import {Rating,RatingModule} from "primeng/rating";
+import {Card, CardModule} from 'primeng/card';
+import {Rating, RatingModule} from 'primeng/rating';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {SplitButton, SplitButtonModule} from 'primeng/splitbutton';
 
-
-import {SplitButton, SplitButtonModule} from "primeng/splitbutton";
-import { CommentairesComponent } from './commentaires/commentaires.component';
 
 
 
@@ -58,8 +56,7 @@ registerLocaleData(localeFr, 'fr');
     ListeJeuxComponent,
     AjoutJeuxComponent,
     LpSolverTestComponent,
-    NewUserComponent,
-    CommentairesComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
