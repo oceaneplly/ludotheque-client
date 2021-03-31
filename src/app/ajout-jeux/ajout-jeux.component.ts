@@ -23,6 +23,7 @@ export class AjoutJeuxComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.formulaire = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
       description: new FormControl('', Validators.required),
@@ -86,9 +87,8 @@ export class AjoutJeuxComponent implements OnInit {
   ajoutJeu(): void {
     this.jeu = {
       ...this.jeu, ...this.formulaire.value
-
-
     };
+    console.log('jeu ', this.jeu);
     this.jeuService.ajoutJeu(this.jeu).subscribe(res => {
       console.log(res);
     });
