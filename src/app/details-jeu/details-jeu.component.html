@@ -19,14 +19,18 @@
       <li>Âge : {{jeu.age}} ans</li>
       <li>Règles : {{jeu.regles}}</li>
       <li>Durée : {{jeu.duree}}</li>
-      <li>Mécanique : {{this.jeu.mecaniques.nom}}</li>
+      <li>Mécanique :
+        <div *ngFor="let meca of jeu.mecaniques">
+          <p>{{meca.nom}}</p>
+        </div>
+      </li>
       <li>Éditeur : {{jeu.editeur_id.nom}}</li>
       <li>Commentaires :
-        <div *ngFor="let com of this.jeu.commentaires">
-          Note : {{com.note}}
-          Auteur : {{com.user.pseudo}}
-          Message : {{com.commentaire}}
-        </div>
+<!--        <div *ngFor="let com of jeu.commentaires">-->
+<!--          Note : {{com.note}}-->
+<!--          Auteur : {{com.user.pseudo}}-->
+<!--          Message : {{com.commentaire}}-->
+<!--        </div>-->
       </li>
     </ul>
 
