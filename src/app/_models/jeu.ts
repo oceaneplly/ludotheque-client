@@ -9,14 +9,14 @@ export interface Jeu {
   nom: string;
   url: string;
   description: string;
-  theme_id: Theme;
+  theme_id: number;
   langue: string;
   age: number;
   poids: number;
   categorie: string;
   duree: string;
   regles: string;
-  editeur_id: Editeur;
+  editeur_id: number;
   note: number;
   nombre_joueurs: number;
 }

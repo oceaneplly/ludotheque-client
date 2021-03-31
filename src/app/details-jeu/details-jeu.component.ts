@@ -6,7 +6,10 @@ import {ListeJeuxComponent} from '../liste-jeux/liste-jeux.component';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Validateur} from '../Validateur';
 import {environment} from '../../environments/environment';
-import {AuthentificationService} from '../_services/authentification.service';
+import {ANONYMOUS_USER, AuthentificationService} from '../_services/authentification.service';
+import {HttpClient} from '@angular/common/http';
+import {catchError, map, shareReplay, tap} from "rxjs/operators";
+import {throwError} from "rxjs";
 
 @Component({
   selector: 'app-details-jeu',
@@ -24,7 +27,7 @@ export class DetailsJeuComponent implements OnInit {
       }
   );
 
-  constructor(public authService: AuthentificationService) {
+  constructor(public authService: AuthentificationService, private http: HttpClient, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -37,13 +40,17 @@ export class DetailsJeuComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   ajouterAchat() {
-    // @ts-ignore
-    return this.http.post<any>(`${environment.apiUrl}/auth/users/${id}/achat`, {
+    return this.http.post<any>(`${environment.apiUrl}/users/${this.authService.userValue.id}/achat`, {
       lieu: this.formulaire.get('lieu').value,
       date_achat: this.formulaire.get('date_achat').value,
-      prix: this.formulaire.get('prix').value,
-      jeu_id: this.formulaire.get('jeu_id').value
-    });
+      prix: Number(this.formulaire.get('prix').value),
+      jeu_id: +this.route.snapshot.paramMap.get('id')
+    }).pipe(
+        catchError(err => {
+          console.log(err);
+          return throwError('bug');
+          // return of('');
+        }));
   }
 
   // tslint:disable-next-line:typedef
