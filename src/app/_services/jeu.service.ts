@@ -7,7 +7,9 @@ import {environment} from '../../environments/environment';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
 import * as moment from 'moment';
 import {Jeu} from '../_models/jeu';
-
+import {Editeur} from '../_models/editeur';
+import {Theme} from '../_models/theme';
+import {Mecanique} from '../_models/mecanique';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,6 +24,29 @@ export class  JeuService{
 
   constructor(private http: HttpClient) {
 
+  }
+  getMecaniques(): Observable<Mecanique[]> {
+    return this.http.get<any>(environment.apiUrl + '/mecanics', httpOptions)
+      .pipe(
+        map(rep => rep.data.items),
+        catchError(err => throwError(err))
+      );
+  }
+
+  getEditeurs(): Observable<Editeur[]> {
+    return this.http.get<any>(environment.apiUrl + '/editeurs', httpOptions)
+      .pipe(
+        map(rep => rep.data.items),
+        catchError(err => throwError(err))
+      );
+  }
+
+  getThemes(): Observable<Theme[]> {
+    return this.http.get<any>(environment.apiUrl + '/themes', httpOptions)
+      .pipe(
+        map(rep => rep.data.items),
+        catchError(err => throwError(err))
+      );
   }
 
   getJeuHttp(): Observable<Jeu> {
@@ -39,7 +64,8 @@ export class  JeuService{
         }),
       );
   }
-  ajoutJeu(jeu: Jeu): Observable<Jeu> {
+
+  ajoutJeu(jeu: { categorie: string; poids: number; description: string; langue: string; nom: string; url: string; regles: string; editeur: string; mecanique: string; duree: string; theme: string; id: number; age: number }): Observable<Jeu> {
     return this.http.post<any>(environment.apiUrl + '/jeux',
       jeu, httpOptions);
   }
