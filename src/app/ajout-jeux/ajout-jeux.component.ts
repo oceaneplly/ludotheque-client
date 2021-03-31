@@ -25,19 +25,19 @@ export class AjoutJeuxComponent implements OnInit {
   ngOnInit(): void {
 
     this.formulaire = new FormGroup({
-      nom: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]),
-      description: new FormControl('', Validators.required),
+      nom: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1000)]),
       theme: new FormControl(1, Validators.required),
       editeur: new FormControl(1, Validators.required),
       mecanique: new FormControl(1, Validators.required),
-      url_media: new FormControl(''),
+      url_media: new FormControl('', [Validators.minLength(1), Validators.maxLength(100)]),
       categorie: new FormControl('', Validators.required),
-      regle: new FormControl('', Validators.required),
+      regle: new FormControl('', [ Validators.minLength(0), Validators.maxLength(1000)]),
       langue: new FormControl('', Validators.required),
-      nombre_joueur: new FormControl(2, [Validators.required, Validators.min(2), Validators.max(8)]),
-      age: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(16)]),
-      poids: new FormControl(0.1, [Validators.required, Validators.min(0.1), Validators.max(5.00)]),
-      duree: new FormControl(0, Validators.required)
+      nb_player: new FormControl(2, [Validators.required, Validators.min(2), Validators.max(12)]),
+      age: new FormControl(1, [Validators.min(4), Validators.max(18)]),
+      poids: new FormControl(1, [Validators.min(0), Validators.max(50)]),
+      duree: new FormControl(1, [Validators.min(5), Validators.max(300)])
     });
 
 
@@ -68,7 +68,7 @@ export class AjoutJeuxComponent implements OnInit {
         });
       }
     );
-    
+
     this.jeuService.getMecaniques().subscribe(
       mecaniques => {
         this.mecaniques = mecaniques;
