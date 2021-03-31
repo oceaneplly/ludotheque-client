@@ -11,7 +11,8 @@ import {JeuService} from '../_services/jeu.service';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  jeu: Jeu = {id:0,nombrejoueurs:0,note: 0, mecanique:"", editeur:"", age: 0, url:"", categorie: "", description: "", duree: "", langue: "", nom: "", poids: 0, regles: "", theme: ""};
+  // tslint:disable-next-line:max-line-length
+  jeu: Jeu = {id: 0, nombrejoueurs: 0, note: 0, mecanique: '', editeur: '', age: 0, url: '', categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
   tri: string;
@@ -34,7 +35,7 @@ export class ListeJeuxComponent implements OnInit {
       // @ts-ignore
       this.jeux = res;
       console.log(res);
-      res.forEach((x : Jeu) => {
+      res.forEach((x: Jeu) => {
         if (x.nombrejoueurs !== undefined) {
           this.tableauNombre.push(x.nombrejoueurs);
         }
@@ -55,9 +56,10 @@ export class ListeJeuxComponent implements OnInit {
     return this.jeux;
   }
 
+  // tslint:disable-next-line:typedef
   onRowSelect(jeu: Jeu) {
-    if (this.jeuSelectionne===jeu) {
-      this.jeuSelectionne=undefined;
+    if (this.jeuSelectionne === jeu) {
+      this.jeuSelectionne = undefined;
       console.log(this.jeuSelectionne);
     }
     else {
@@ -66,13 +68,14 @@ export class ListeJeuxComponent implements OnInit {
     }
   }
 
-  onTri():void {
+  onTri(): void {
     if (this.tri === 'pi pi-sort-numeric-down') {
-      console.log("coucou");
+      console.log('coucou');
       this.tri = 'pi pi-sort-alpha-up';
+      // tslint:disable-next-line:only-arrow-functions typedef
       this.jeux.sort(function(a, b){
-        let nameA = a.nom.toUpperCase();
-        let nameB = b.nom.toUpperCase();
+        const nameA = a.nom.toUpperCase();
+        const nameB = b.nom.toUpperCase();
         if (nameA < nameB) { return -1; }
         if (nameA > nameB) { return 1; }
 
