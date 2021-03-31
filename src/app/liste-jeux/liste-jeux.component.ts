@@ -52,18 +52,17 @@ export class ListeJeuxComponent implements OnInit {
       this.jeux = res;
       console.log(res);
       res.forEach((x : Jeu) => {
-        if (x.nombrejoueurs !== undefined) {
-          this.tableauNombre.push(x.nombrejoueurs);
+        if (x.nombrejoueurs !== undefined && !this.contenirNombres(x.nombrejoueurs)){
+          this.tableauNombre.push({name: x.nombrejoueurs, code: x.nombrejoueurs});
         }
-        if (x.theme !== undefined) {
-          this.tableauTheme.push(x.theme);
+        if (x.theme !== undefined && !this.contenirTheme(x.theme)){
+          this.tableauTheme.push({name: x.theme, code: x.theme});
         }
-        if (x.editeur !== undefined) {
-          this.tableauEditeur.push(x.editeur);
+        if (x.editeur !== undefined && !this.contenirEditeur(x.editeur)){
+          this.tableauEditeur.push({name: x.editeur, code: x.editeur});
         }
         if (x.age !== undefined && !this.contenirAge(x.age)){
           this.tableauAge.push({name: x.age, code: x.age});
-          console.log(x.age);
         }
 
       });
@@ -114,6 +113,36 @@ export class ListeJeuxComponent implements OnInit {
   contenirAge(id: any): boolean {
     let verif: boolean = false;
     this.tableauAge.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
+  contenirEditeur(id: any): boolean {
+    let verif: boolean = false;
+    this.tableauEditeur.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
+  contenirNombres(id: any): boolean {
+    let verif: boolean = false;
+    this.tableauNombre.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
+  contenirTheme(id: any): boolean {
+    let verif: boolean = false;
+    this.tableauTheme.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
       }
