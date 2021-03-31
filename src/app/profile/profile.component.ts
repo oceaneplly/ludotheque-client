@@ -42,11 +42,13 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl('/colisPostal');
   }
 
+  // tslint:disable-next-line:typedef
   onRowSelect(jeu: Jeu) {
     this.jeuSelectionne = jeu;
     this.scroll.scrollToPosition([0, 100]);
   }
 
+  // tslint:disable-next-line:typedef
   onRowUnselect() {
     // tslint:disable-next-line:no-unused-expression
     this.jeuSelectionne = undefined;
