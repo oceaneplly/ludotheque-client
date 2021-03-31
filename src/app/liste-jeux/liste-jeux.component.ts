@@ -32,6 +32,7 @@ export class ListeJeuxComponent implements OnInit {
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
   tri: string;
+  tableauJeu: Array<Jeu>;
 
   tableauNombre = [];
   selectNombre = [];
@@ -42,6 +43,7 @@ export class ListeJeuxComponent implements OnInit {
   tableauAge = [];
   selectAge = [];
 
+  filtrage: boolean;
   constructor(public jeuxService: JeuService, private scroll: ViewportScroller) {
   }
 
@@ -68,6 +70,8 @@ export class ListeJeuxComponent implements OnInit {
       });
     });
     this.tri = '';
+    this.filtrage=false;
+    this.tableauJeu=[];
   }
 
   // tslint:disable-next-line:typedef
@@ -120,6 +124,17 @@ export class ListeJeuxComponent implements OnInit {
     return verif;
   }
 
+  contenirAge1(id: any): boolean {
+    let verif: boolean = false;
+    this.selectAge.forEach((x: any) => {
+      if (x.name === id) {
+        console.log(this.selectAge);
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
   contenirEditeur(id: any): boolean {
     let verif: boolean = false;
     this.tableauEditeur.forEach((x: any) => {
@@ -149,4 +164,17 @@ export class ListeJeuxComponent implements OnInit {
     });
     return verif;
   }
+
+  filtrageCoursAge(): void {
+    if(this.selectAge.length==0) {
+      this.filtrage=false;
+    }
+    else {
+      this.jeux.forEach((x: Jeu) => {
+        this.filtrage = true;
+        if (this.contenirAge1(x.age))
+          this.tableauJeu.push(x);
+        }
+      );
+    }}
 }
