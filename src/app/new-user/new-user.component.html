@@ -1,57 +1,55 @@
+<br>
+<h1 [style]="{fontSize:'200%',textAlign:'center',color:'var(--teal-400)',fontFamily:'Helvetica'}">Bienvenue dans l'espace d'inscription</h1>
+<br>
 <form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col">
-      <label for="nom" >nom</label>
+      <label for="nom" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Nom</label>
       <input id="nom" type="text" pInputText class="form-control" formControlName="nom" placeholder="Nom">
-        <div *ngIf="nom?.errors?.required" style="color:crimson">Le nom est obligatoire</div>
+        <div *ngIf="nom?.errors?.required" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le nom est obligatoire</div>
         <div *ngIf="nom?.errors?.minlength"  style="color:crimson">Le nom doit comporter au moins 2 caractères</div>
       </div>
     </div>
   <div class="p-fluid p-formgrid p-grid">
 
   <div class="p-field p-col">
-      <label for="prenom" >prenom</label>
+      <label for="prenom" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Prénom</label>
       <input id="prenom" type="text" pInputText class="form-control" formControlName="prenom" placeholder="Prenom">
-    <div *ngIf="prenom?.errors?.required" style="color:crimson">Le prenom est obligatoire</div>
-    <div *ngIf="prenom?.errors?.minlength"  style="color:crimson">Le prenom doit comporter au moins 2 caractères</div>
+    <div *ngIf="prenom?.errors?.required" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le prenom est obligatoire</div>
+    <div *ngIf="prenom?.errors?.minlength" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le prenom doit comporter au moins 2 caractères</div>
     </div>
   </div>
 
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col">
-      <label for="Pseudonyme" >Pseudonyme</label>
+      <label for="Pseudonyme" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}" >Pseudonyme</label>
       <input id="Pseudonyme" type="text" pInputText class="form-control" formControlName="pseudonyme" placeholder="Pseudonyme">
-      <div *ngIf="pseudonyme?.errors?.required" style="color:crimson">Le pseudonyme est obligatoire</div>
-      <div *ngIf="pseudonyme?.errors?.minlength"  style="color:crimson">Le pseudonyme doit comporter au moins 2 caractères</div>
+      <div *ngIf="pseudonyme?.errors?.required" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le pseudonyme est obligatoire</div>
+      <div *ngIf="pseudonyme?.errors?.minlength"  [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le pseudonyme doit comporter au moins 2 caractères</div>
     </div>
 
     <div class="p-field p-col">
-      <label for="mail" >Mail</label>
+      <label for="mail" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Mail</label>
       <input id="mail" type="text" pInputText class="form-control" formControlName="mail" placeholder="Mail">
-      <div *ngIf="mail?.errors?.required" style="color:crimson">Le mail est obligatoire</div>
-      <div *ngIf="mail?.errors?.pattern" style="color:crimson">Le mail doit être du type a-a@a-a.a-a </div>
+      <div *ngIf="mail?.errors?.required" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le mail est obligatoire</div>
+      <div *ngIf="mail?.errors?.pattern"[style]="{fontFamily:'Helvetica',marginTop:'1%'}"  style="color:crimson">Le mail doit être du type a-a@a-a.a-a </div>
     </div>
   </div>
 
   <div formGroupName="password">
     <div class="p-fluid p-formgrid p-grid">
       <div class="p-field p-col">
-        <label for="mdp" >Mot de passe</label>
+        <label for="mdp" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Mot de passe</label>
         <input id="mdp" type="password" pInputText class="form-control" formControlName="mdp" placeholder="Mot de passe">
-        <div *ngIf="mdp?.errors?.required" style="color:crimson">Le mot de passe est obligatoire</div>
-        <div *ngIf="mdp?.errors?.pattern" style="color:crimson">Le mot de passe doit être composé d'au moins 8 caractères et d'au moins d'une majuscule et d'un nombre </div>
-        <div *ngIf="mdp.invalid && mdp.touched" style="color:crimson">Les mots de passe doit être identiques </div>
+        <div *ngIf="mdp?.errors?.required" [style]="{fontFamily:'Helvetica',marginTop:'1%'}"  style="color:crimson">Le mot de passe est obligatoire</div>
+        <div *ngIf="mdp?.errors?.pattern" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Le mot de passe doit être composé d'au moins 8 caractères et d'au moins d'une majuscule et d'un nombre </div>
+        <div *ngIf="mdp.invalid && mdp.touched" [style]="{fontFamily:'Helvetica',marginTop:'1%'}" style="color:crimson">Les mots de passe doivent être identiques </div>
 
       </div>
       <div class="p-field p-col">
-        <label for="confirmMdp" >Vérification</label>
+        <label for="confirmMdp" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Vérification</label>
         <input id="confirmMdp" type="password" pInputText class="form-control" formControlName="confirmMdp" placeholder="Vérification mot de passe">
-        <div *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doit être identiques </div>
-      </div>
-
-      <div class="p-field p-col">
-        <label for="rgpd">TEST RGPD</label>
-        <input id="rgpd" type="checkbox">
+        <div [style]="{fontFamily:'Helvetica',marginTop:'1%'}" *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doivent être identiques </div>
       </div>
 
     </div>
