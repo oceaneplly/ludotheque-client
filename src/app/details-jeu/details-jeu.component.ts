@@ -4,7 +4,6 @@ import {Jeu} from '../_models/jeu';
 import {JeuService} from '../_services/jeu.service';
 import {ListeJeuxComponent} from '../liste-jeux/liste-jeux.component';
 import {AuthentificationService} from '../_services/authentification.service';
-import {Commentaire} from "../_models/commentaire";
 
 @Component({
   selector: 'app-details-jeu',
@@ -13,7 +12,6 @@ import {Commentaire} from "../_models/commentaire";
 })
 export class DetailsJeuComponent implements OnInit {
   @Input() jeu: Jeu;
-  commentaire: Commentaire;
 
   constructor(public authService: AuthentificationService, public component: ListeJeuxComponent) {
   }

@@ -27,7 +27,8 @@ export class ListeJeuxComponent implements OnInit {
     nom: '',
     poids: 0,
     regles: '',
-    theme_id: undefined
+    theme_id: undefined,
+    commentaires: undefined
   };
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
@@ -54,7 +55,7 @@ export class ListeJeuxComponent implements OnInit {
       this.jeux = res;
       console.log(res);
       res.forEach((x: Jeu) => {
-        console.log(x.theme_id.nom);
+
         if (x.theme_id.nom !== undefined && !this.contenirTheme(x.theme_id.nom)){
           this.tableauTheme.push({name: x.theme_id.nom, code: x.theme_id.nom});
         }
@@ -82,7 +83,6 @@ export class ListeJeuxComponent implements OnInit {
 
   onTri(): void {
     if (this.tri === 'pi pi-sort-numeric-down') {
-      console.log('coucou');
       this.tri = 'pi pi-sort-alpha-up';
       this.jeux.sort(function(a, b) {
         const nameA = a.nom.toUpperCase();
@@ -116,7 +116,6 @@ export class ListeJeuxComponent implements OnInit {
     let verif = false;
     this.selectAge.forEach((x: any) => {
       if (x.name === id) {
-        console.log(this.selectAge);
         verif = true;
       }
     });
@@ -178,4 +177,8 @@ export class ListeJeuxComponent implements OnInit {
       // tslint:disable-next-line:no-unused-expression
       this.jeuSelectionne = undefined;
     }
+
+    // getMecaniques(): string {
+    //   for
+    // }
 }
