@@ -16,19 +16,19 @@
     </div>
     <div class="p-field p-col">
       <label for="theme">Theme</label>
-      <select id="theme" formulaireControlName="theme"  >
+      <select id="theme" formControlName="theme"  >
         <option *ngFor="let theme of themes" [value]="theme.id" >{{ theme.nom }}</option>
       </select>
     </div>
     <div class="p-field p-col">
       <label for="editeur">Editeur</label>
-      <select id="editeur" formulaireControlName="editeur"  >
+      <select id="editeur" formControlName="editeur"  >
         <option *ngFor="let editeur of editeurs" [value]="editeur.id" >{{ editeur.nom }}</option>
       </select>
     </div>
     <div class="p-field p-col">
       <label for="mecanique">Mecanique</label>
-      <select id="mecanique" formulaireControlName="mecanique">
+      <select id="mecanique" formControlName="mecanique">
         <option *ngFor="let mecanique of mecaniques" [value]="mecanique.id" >{{ mecanique.nom }}</option>
       </select>
     </div>
@@ -41,7 +41,7 @@
     </div>
     <div class="p-field p-col">
       <label for="categories">Categorie</label>
-      <input id="categories" type="text" pInputText formulaireControlName="categorie">
+      <input id="categories" type="text" pInputText formuControlName="categorie">
       <div *ngIf="formulaire.get('categorie').invalid && formulaire.get('categorie').touched" class="card-panel red accent-1">
         Erreur
       </div>
