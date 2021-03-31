@@ -42,6 +42,7 @@ import {CommentairesComponent} from "./commentaires/commentaires.component";
 import { DatePipe } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ColisPostalComponent } from './colis-postal/colis-postal.component';
 
 
 
@@ -60,7 +61,8 @@ registerLocaleData(localeFr, 'fr');
     AjoutJeuxComponent,
     LpSolverTestComponent,
     NewUserComponent,
-    CommentairesComponent
+    CommentairesComponent,
+    ColisPostalComponent
   ],
   imports: [
     BrowserModule,
