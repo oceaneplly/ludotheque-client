@@ -8,8 +8,8 @@ import {Validateur} from '../Validateur';
 import {environment} from '../../environments/environment';
 import {ANONYMOUS_USER, AuthentificationService} from '../_services/authentification.service';
 import {HttpClient} from '@angular/common/http';
-import {catchError, map, shareReplay, tap} from "rxjs/operators";
-import {throwError} from "rxjs";
+import {catchError, map, shareReplay, tap} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-details-jeu',

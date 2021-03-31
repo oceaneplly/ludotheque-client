@@ -4,6 +4,9 @@ import {UserInfo} from '../_models/user-info';
 import {Observable} from 'rxjs';
 import {MessageService} from 'primeng/api';
 import {Router} from '@angular/router';
+import {Jeu} from '../_models/jeu';
+import {JeuService} from '../_services/jeu.service';
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-profile',
@@ -11,11 +14,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  jeuSelectionne: Jeu;
   loading: boolean;
   user: UserInfo;
+  jeux: Array<Jeu>;
 
-  constructor(private userService: UserService, private messageService: MessageService, private router: Router) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private userService: UserService, private messageService: MessageService, private router: Router, private scroll: ViewportScroller) {
     this.loading = false;
   }
 
@@ -32,6 +37,16 @@ export class ProfileComponent implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
+  }
+
+  onRowSelect(jeu: Jeu) {
+    this.jeuSelectionne = jeu;
+    this.scroll.scrollToPosition([0, 100]);
+  }
+
+  onRowUnselect() {
+    // tslint:disable-next-line:no-unused-expression
+    this.jeuSelectionne = undefined;
   }
 
 }

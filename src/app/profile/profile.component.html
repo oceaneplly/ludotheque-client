@@ -7,3 +7,51 @@
   <p>Crée : {{user.created_at | amDateFormat:'LL'}} </p>
   <p>Modifié : {{user.updated_at | amDateFormat:'LL'}} </p>
 </div>
+<div *ngIf="jeuSelectionne">
+  <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
+</div>
+<div>
+  <br>
+  <p-table [value]="jeux" (onRowUnselect)="jeuSelectionne=undefined">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Thème</th>
+        <th>Nombre de joueurs</th>
+        <th>Âge</th>
+        <th>Durée</th>
+        <th>Details</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-jeu>
+      <tr [ngClass]="{'kid': jeu.age<8, 'ado': (jeu.age> 9 && jeu.age < 18),'adult': jeu.age >= 18}" [style]="{border:('black')}">
+        <td>{{jeu.id}}</td>
+        <td>{{jeu.nom}}</td>
+        <td>
+          <img src="{{jeu.url}}">
+        </td>
+        <td>{{jeu.description}}</td>
+        <td>{{jeu.theme_id.nom}}</td>
+        <td>{{jeu.nombre_joueurs}} joueurs</td>
+
+        <td>
+          <div>
+            {{jeu.age}} ans ou +
+          </div>
+        </td>
+        <td>{{jeu.duree}}</td>
+        <td>
+          <div *ngIf="jeuSelectionne && jeu===jeuSelectionne">
+            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="onRowUnselect()"></button>
+          </div>
+          <div *ngIf="jeuSelectionne===undefined">
+            <button type="button" pButton pRipple icon="pi pi-eye" (click)="onRowSelect(jeu)"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

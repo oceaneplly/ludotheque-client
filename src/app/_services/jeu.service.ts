@@ -23,9 +23,8 @@ export class  JeuService{
   map: Map<number, Jeu>;
   mapTheme: Map<number, string>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
 
-  }
   getMecaniques(): Observable<Mecanique[]> {
     return this.http.get<any>(environment.apiUrl + '/mecanics', httpOptions)
       .pipe(
@@ -42,27 +41,15 @@ export class  JeuService{
       );
   }
 
+  getTheme(id: number): string{
+    return this.mapTheme.get(id) as string;
+  }
+
   getThemes(): Observable<Theme[]> {
     return this.http.get<any>(environment.apiUrl + '/themes', httpOptions)
       .pipe(
         map(rep => rep.data.items),
         catchError(err => throwError(err))
-      );
-  }
-
-  getJeuHttp(): Observable<Jeu> {
-    const url = 'http://localhost:8000/jeux';
-    // tslint:disable-next-line:no-shadowed-variable
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    return this.http.get<any>(url, httpOptions)
-      .pipe(
-        map(res => res.data.item),
-        catchError(err => {
-          console.log('Erreur http : ', err);
-          return of([]);
-        }),
       );
   }
 
