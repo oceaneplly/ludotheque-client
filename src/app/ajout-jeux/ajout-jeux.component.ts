@@ -26,13 +26,13 @@ export class AjoutJeuxComponent implements OnInit {
 
     this.formulaire = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
-      description: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1000)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(1000)]),
       theme: new FormControl(1, Validators.required),
       editeur: new FormControl(1, Validators.required),
       mecanique: new FormControl(1, Validators.required),
-      url_media: new FormControl('', [Validators.minLength(1), Validators.maxLength(100)]),
+      url_media: new FormControl('', [Validators.minLength(5), Validators.maxLength(200)]),
       categorie: new FormControl('', Validators.required),
-      regle: new FormControl('', [ Validators.minLength(0), Validators.maxLength(1000)]),
+      regle: new FormControl('', [ Validators.minLength(2), Validators.maxLength(1000)]),
       langue: new FormControl('', Validators.required),
       nb_player: new FormControl(2, [Validators.required, Validators.min(2), Validators.max(12)]),
       age: new FormControl(1, [Validators.min(4), Validators.max(18)]),

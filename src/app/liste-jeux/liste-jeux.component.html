@@ -44,7 +44,7 @@
         <img src="{{jeu.url}}">
       </td>
       <td>{{jeu.description}}</td>
-      <td>{{jeu.theme}}</td>
+      <td>{{jeu.theme_id.nom}}</td>
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>
@@ -76,7 +76,7 @@
         <img src="{{jeu.url}}">
       </td>
       <td>{{jeu.description}}</td>
-      <td>{{jeu.theme}}</td>
+      <td>{{jeu.getTheme(jeu.id)}}</td>
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>

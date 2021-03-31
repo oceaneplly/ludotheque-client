@@ -27,7 +27,7 @@ export class ListeJeuxComponent implements OnInit {
     nom: '',
     poids: 0,
     regles: '',
-    theme: ''
+    theme: null
   };
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
@@ -53,7 +53,7 @@ export class ListeJeuxComponent implements OnInit {
       // @ts-ignore
       this.jeux = res;
       console.log(res);
-      res.forEach((x : Jeu) => {
+      res.forEach((x: Jeu) => {
         if (x.nombrejoueurs !== undefined && !this.contenirNombres(x.nombrejoueurs)){
           this.tableauNombre.push({name: x.nombrejoueurs, code: x.nombrejoueurs});
         }

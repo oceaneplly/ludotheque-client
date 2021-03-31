@@ -21,6 +21,7 @@ const httpOptions = {
 
 export class  JeuService{
   map: Map<number, Jeu>;
+  mapTheme: Map<number, string>;
 
   constructor(private http: HttpClient) {
 

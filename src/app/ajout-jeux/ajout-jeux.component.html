@@ -1,6 +1,6 @@
 <form [formGroup]="formulaire" (ngSubmit)="ajoutJeu()">
 
-  <div class="p-fluid p-formgrid ">
+  <div class="p-fluid p-formgrid">
 
     <div class="p-field p-col-3">
       <label for="name">Nom</label>
@@ -13,21 +13,23 @@
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-5">
+      <div class="p-field p-col-10">
         <label for="description">Description</label>
-        <input id="description" type="textArea" pInputText formControlName="description">
-        <div *ngIf="formulaire.get('description').invalid && formulaire.get('description').touched" class="card-panel red accent-1">
-          Erreur
-        </div>
+        <input id="description" type="text" pInputText formControlName="description">
+        <div *ngIf="formulaire.get('description')?.errors?.required && formulaire.get('description').touched" style="color:crimson">La description est obligatoire</div>
+        <div *ngIf="formulaire.get('description')?.errors?.minlength && formulaire.get('description').touched" style="color:crimson">La description doit au moins contenir 2 caractères </div>
+        <div *ngIf="formulaire.get('description')?.errors?.maxlength && formulaire.get('description').touched" style="color:crimson">La description doit au plus contenir 1000 caractères </div>
+
       </div>
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
       <div class="p-field p-col">
-        <label for="theme">Theme</label>
+        <label for="theme">Thème</label>
         <select id="theme" formControlName="theme"  >
           <option *ngFor="let theme of themes" [value]="theme.id" >{{ theme.nom }}</option>
         </select>
+        <div *ngIf="formulaire.get('theme')?.errors?.required && formulaire.get('theme').touched" style="color:crimson">Le thème est obligatoire</div>
       </div>
     </div>
 
@@ -37,6 +39,7 @@
         <select id="editeur" formControlName="editeur"  >
           <option *ngFor="let editeur of editeurs" [value]="editeur.id" >{{ editeur.nom }}</option>
         </select>
+        <div *ngIf="formulaire.get('editeur')?.errors?.required && formulaire.get('editeur').touched" style="color:crimson">L'editeur est obligatoire</div>
       </div>
     </div>
 
@@ -50,85 +53,82 @@
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col">
+      <div class="p-field p-col-4">
         <label for="url_media">Url Media</label>
         <input id="url_media" type="url" pInputText formControlName="url_media">
-        <div *ngIf="formulaire.get('url_media').invalid && formulaire.get('url_media').touched" class="card-panel red accent-1">
-          Erreur
-        </div>
+        <div *ngIf="formulaire.get('url_media')?.errors?.minlength && formulaire.get('url_media').touched" style="color:crimson">L'url doit au moins contenir 5 caractères </div>
+        <div *ngIf="formulaire.get('url_media')?.errors?.maxlength && formulaire.get('url_media').touched" style="color:crimson">L'url doit au plus contenir 200 caractères </div>
+
       </div>
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col">
+      <div class="p-field p-col-4">
         <label for="categories">Categorie</label>
         <input id="categories" type="text" pInputText formControlName="categorie">
-        <div *ngIf="formulaire.get('categorie').invalid && formulaire.get('categorie').touched" class="card-panel red accent-1">
-          Erreur
-        </div>
+        <div *ngIf="formulaire.get('categorie')?.errors?.required && formulaire.get('categorie').touched" style="color:crimson">La catégorie est obligatoire</div>
       </div>
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col">
-        <label for="regle">Regle</label>
+      <div class="p-field p-col-10">
+        <label for="regle">Règles</label>
         <input id="regle" type="text" pInputText formControlName="regle">
-        <div *ngIf="formulaire.get('nom').invalid && formulaire.get('nom').touched" class="card-panel red accent-1">
-          Erreur
-        </div>
+        <div *ngIf="formulaire.get('regle')?.errors?.minlength && formulaire.get('regle').touched" style="color:crimson">Les règles doivent au moins contenir 5 caractères </div>
+        <div *ngIf="formulaire.get('regle')?.errors?.maxlength && formulaire.get('regle').touched" style="color:crimson">Les règles doivent au plus contenir 200 caractères </div>
+
       </div>
     </div>
 
     <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col">
+      <div class="p-field p-col-3">
         <label for="langue">Langue</label>
         <input id="langue" type="text" pInputText formControlName="langue">
-        <div *ngIf="formulaire.get('langue').invalid && formulaire.get('langue').touched" class="card-panel red accent-1">
-          Erreur
+        <div *ngIf="formulaire.get('langue')?.errors?.required && formulaire.get('langue').touched" style="color:crimson">La langue est obligatoire</div>
+
+      </div>
+    </div>
+    <div class="p-d-inline-flex">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-4">
+          <label for="nb_player">Nombre de joueur</label>
+          <input id="nb_player" type="number" pInputText formControlName="nb_player">
+          <div *ngIf="formulaire.get('nb_player').invalid && formulaire.get('nb_player').touched" class="card-panel red accent-1">
+            Veuillez saisir une valeur entre 2 et 12
+          </div>
+        </div>
+      </div>
+
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-4">
+          <label for="age">Age</label>
+          <input id="age" type="number" pInputText formControlName="age">
+          <div *ngIf="formulaire.get('age').invalid && formulaire.get('age').touched" class="card-panel red accent-1">
+            Veuillez saisir une valeur entre 4 et 18
+          </div>
+        </div>
+      </div>
+
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-4">
+          <label for="poids">Poids</label>
+          <input id="poids" type="number" pInputText formControlName="poids">
+          <div *ngIf="formulaire.get('poids').invalid && formulaire.get('poids').touched" class="card-panel red accent-1">
+            Veuillez saisir une valeur entre 0 et 50
+          </div>
+        </div>
+      </div>
+
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-4">
+          <label for="duree">duree</label>
+          <input id="duree" type="number" pInputText formControlName="duree">
+          <div *ngIf="formulaire.get('duree').invalid && formulaire.get('duree').touched" class="card-panel red accent-1">
+            Veuillez saisir une valeur entre 5 et 300
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-1">
-        <label for="nb_player">Nombre de joueur</label>
-        <input id="nb_player" type="number" pInputText formControlName="nb_player">
-        <div *ngIf="formulaire.get('nb_player').invalid && formulaire.get('nb_player').touched" class="card-panel red accent-1">
-          Veuillez saisir une valeur entre 2 et 12
-        </div>
-      </div>
-    </div>
-
-    <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-1">
-        <label for="age">Age</label>
-        <input id="age" type="number" pInputText formControlName="age">
-        <div *ngIf="formulaire.get('age').invalid && formulaire.get('age').touched" class="card-panel red accent-1">
-          Veuillez saisir une valeur entre 4 et 18
-        </div>
-      </div>
-    </div>
-
-    <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-1">
-        <label for="poids">Poids</label>
-        <input id="poids" type="number" pInputText formControlName="poids">
-        <div *ngIf="formulaire.get('poids').invalid && formulaire.get('poids').touched" class="card-panel red accent-1">
-          Veuillez saisir une valeur entre 0 et 50
-        </div>
-      </div>
-    </div>
-
-    <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-1">
-        <label for="duree">duree</label>
-        <input id="duree" type="number" pInputText formControlName="duree">
-        <div *ngIf="formulaire.get('duree').invalid && formulaire.get('duree').touched" class="card-panel red accent-1">
-          Veuillez saisir une valeur entre 5 et 300
-        </div>
-      </div>
-    </div>
-
     <button (click)="ajoutJeu()">Valider</button>
 
   </div>
