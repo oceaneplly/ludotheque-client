@@ -1,0 +1,13 @@
+<div class="p-formgroup-online">
+<div class="p-fluid">
+  <div class="p-field">
+    <h5>Donner une note</h5>
+    <p-rating [(ngModel)]="val1"></p-rating>
+  </div>
+  <div class="p-field">
+    <label for="commentaire1">Laisser un commentaire</label>
+    <input (keyup)="onKey($event)" id="commentaire1" type="text" pInputText>
+  </div>
+</div>
+  <button pButton type="button" label="Submit" (click)="onSubmit()"></button>
+</div>
