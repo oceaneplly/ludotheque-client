@@ -1,12 +1,6 @@
-<div class="p-d-inline-flex">
-  <br>
-  <p-multiSelect [options]="tableauNombre" [(ngModel)]="selectNombre" optionDisabled="inactive" defaultLabel="Choisir un nombre" optionLabel="name" (onChange)="filtrageCoursNombre()"></p-multiSelect>
-  <br>
+<div class="p-d-inline-flex" xmlns="http://www.w3.org/1999/html">
   <br>
   <p-multiSelect [options]="tableauTheme" [(ngModel)]="selectTheme" optionDisabled="inactive" defaultLabel="Choisir un thème" optionLabel="name" (onChange)="filtrageCoursTheme()"></p-multiSelect>
-  <br>
-  <br>
-  <p-multiSelect [options]="tableauEditeur" [(ngModel)]="selectEditeur" optionDisabled="inactive" defaultLabel="Choisir un éditeur" optionLabel="name" (onChange)="filtrageCoursEditeur()" ></p-multiSelect>
   <br>
   <br>
   <p-multiSelect [options]="tableauAge" [(ngModel)]="selectAge" optionDisabled="inactive" defaultLabel="Choisir un âge" optionLabel="name" (onChange)="filtrageCoursAge()"></p-multiSelect>
@@ -18,7 +12,6 @@
   <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
 </div>
 <div *ngIf="!filtrage">
-  <br>
   <br>
   <p-button label="Tri" icon="{{tri}}" (onClick)="onTri()"></p-button>
   <br>
@@ -44,11 +37,16 @@
         <img src="{{jeu.url}}">
       </td>
       <td>{{jeu.description}}</td>
-      <td>{{jeu.theme}}</td>
+      <td>{{jeu.theme_id.nom}}</td>
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>
-        <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+        <div *ngIf="jeuSelectionne && jeu===jeuSelectionne">
+        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="onRowUnselect()"></button>
+        </div>
+        <div *ngIf="jeuSelectionne===undefined">
+          <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+        </div>
       </td>
     </tr>
   </ng-template>
@@ -76,7 +74,7 @@
         <img src="{{jeu.url}}">
       </td>
       <td>{{jeu.description}}</td>
-      <td>{{jeu.theme}}</td>
+      <td>{{jeu.theme_id.nom}}</td>
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>

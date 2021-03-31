@@ -21,6 +21,7 @@ const httpOptions = {
 
 export class  JeuService{
   map: Map<number, Jeu>;
+  mapTheme: Map<number, string>;
 
   constructor(private http: HttpClient) {
 
@@ -70,14 +71,14 @@ export class  JeuService{
       {
         nom : jeu.nom,
         description : jeu.description,
-        theme : jeu.theme,
-        editeur : jeu.editeur,
+        theme : jeu.theme_id,
+        editeur_id : jeu.editeur_id,
         mecanique : jeu.mecanique,
         url : jeu.url,
         categorie : jeu.categorie,
         regle : jeu.regles,
         langue : jeu.langue,
-        nombrejoueurs : jeu.nombrejoueurs,
+        nombre_joueurs : jeu.nombre_joueurs,
         age : jeu.age,
         poids : jeu.poids,
         duree : jeu.duree

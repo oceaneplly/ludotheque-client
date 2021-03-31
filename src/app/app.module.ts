@@ -34,14 +34,14 @@ import {Ripple, RippleModule} from 'primeng/ripple';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import { NewUserComponent } from './new-user/new-user.component';
-import {Card, CardModule} from "primeng/card";
-import {Rating,RatingModule} from "primeng/rating";
+import {Card, CardModule} from 'primeng/card';
+import {Rating, RatingModule} from 'primeng/rating';
 import {MultiSelectModule} from 'primeng/multiselect';
-
-
-import {SplitButton, SplitButtonModule} from "primeng/splitbutton";
-import {DialogModule} from "primeng/dialog";
-import {CheckboxModule} from "primeng/checkbox";
+import {CommentairesComponent} from './commentaires/commentaires.component';
+import { DatePipe } from '@angular/common';
+import {SplitButton, SplitButtonModule} from 'primeng/splitbutton';
+import {DialogModule} from 'primeng/dialog';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 
@@ -60,6 +60,7 @@ registerLocaleData(localeFr, 'fr');
     AjoutJeuxComponent,
     LpSolverTestComponent,
     NewUserComponent,
+    CommentairesComponent
   ],
   imports: [
     BrowserModule,

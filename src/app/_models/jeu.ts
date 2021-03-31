@@ -1,17 +1,21 @@
+import {Theme} from './theme';
+import {Editeur} from './editeur';
+import {Mecanique} from "./mecanique";
+
 export interface Jeu {
   id: number;
-  mecanique: string;
+  mecanique: Mecanique;
   nom: string;
   url: string;
   description: string;
-  theme: string;
+  theme_id: Theme;
   langue: string;
   age: number;
   poids: number;
   categorie: string;
   duree: string;
   regles: string;
-  editeur: string;
+  editeur_id: Editeur;
   note: number;
-  nombrejoueurs: number;
+  nombre_joueurs: number;
 }
