@@ -1,10 +1,10 @@
 <div>
   <div *ngIf="authService.isLoggedOut$ | async">
-  <p-menubar [model]="items">Ludothèque de la VikTeam</p-menubar>
+    <p-menubar [model]="items" styleClass="menucus"  [style]="{backgroundColor:'var(--teal-100)',color:'black',fontFamily:'Helvetica'}">Ludothèque de la VikTeam</p-menubar>
   </div>
 
   <div *ngIf="authService.isLoggedIn$ | async">
-    <p-menubar [model]="items1">Ludothèque de la VikTeam</p-menubar>
+    <p-menubar  styleClass="menucus"  [model]="items1" [style]="{backgroundColor:'var(--teal-100)',color:'black',fontFamily:'Helvetica'}">Ludothèque de la VikTeam</p-menubar>
   </div>
 
 </div>
