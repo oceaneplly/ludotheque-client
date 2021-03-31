@@ -24,6 +24,7 @@
       <div *ngIf="pseudonyme?.errors?.required" style="color:crimson">Le pseudonyme est obligatoire</div>
       <div *ngIf="pseudonyme?.errors?.minlength"  style="color:crimson">Le pseudonyme doit comporter au moins 2 caractères</div>
     </div>
+
     <div class="p-field p-col">
       <label for="mail" >Mail</label>
       <input id="mail" type="text" pInputText class="form-control" formControlName="mail" placeholder="Mail">
@@ -47,6 +48,12 @@
         <input id="confirmMdp" type="password" pInputText class="form-control" formControlName="confirmMdp" placeholder="Vérification mot de passe">
         <div *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doit être identiques </div>
       </div>
+
+      <div class="p-field p-col">
+        <label for="rgpd">TEST RGPD</label>
+        <input id="rgpd" type="checkbox">
+      </div>
+
     </div>
   </div>
 
