@@ -5,18 +5,18 @@ import {Commentaire} from './commentaire';
 
 export interface Jeu {
   id: number;
-  mecaniques: Mecanique;
+  mecaniques: Mecanique[];
   nom: string;
   url: string;
   description: string;
-  theme_id: number;
+  theme_id: any;
   langue: string;
   age: number;
   poids: number;
   categorie: string;
   duree: string;
   regles: string;
-  editeur_id: number;
+  editeur_id: any;
   note: number;
   nombre_joueurs: number;
 }

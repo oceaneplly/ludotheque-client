@@ -19,6 +19,7 @@ import {throwError} from 'rxjs';
 export class DetailsJeuComponent implements OnInit {
   @Input() jeu: Jeu;
   display = false;
+  id: number;
 
   formulaire: FormGroup = new FormGroup({
       lieu: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
@@ -44,13 +45,13 @@ export class DetailsJeuComponent implements OnInit {
       lieu: this.formulaire.get('lieu').value,
       date_achat: this.formulaire.get('date_achat').value,
       prix: Number(this.formulaire.get('prix').value),
-      jeu_id: +this.route.snapshot.paramMap.get('id')
+      jeu_id: this.jeu.id
     }).pipe(
         catchError(err => {
           console.log(err);
           return throwError('bug');
           // return of('');
-        }));
+        })).subscribe();
   }
 
   // tslint:disable-next-line:typedef

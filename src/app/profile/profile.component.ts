@@ -37,7 +37,12 @@ export class ProfileComponent implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
-  }
+    this.userService.getJeux().subscribe(res => {
+      this.jeux = res.jeux.map(value => value.jeu);
+      console.log(res);
+    });
+
+    }
   toColisPostal(): void{
     this.router.navigateByUrl('/colisPostal');
   }
@@ -53,5 +58,7 @@ export class ProfileComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     this.jeuSelectionne = undefined;
   }
+
+
 
 }

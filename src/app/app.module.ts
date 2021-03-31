@@ -38,13 +38,11 @@ import {Card, CardModule} from 'primeng/card';
 import {Rating, RatingModule} from 'primeng/rating';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {SplitButton, SplitButtonModule} from 'primeng/splitbutton';
-import {CommentairesComponent} from "./commentaires/commentaires.component";
+import {CommentairesComponent} from './commentaires/commentaires.component';
 import { DatePipe } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import {CheckboxModule} from 'primeng/checkbox';
 import { ColisPostalComponent } from './colis-postal/colis-postal.component';
-
-
 
 registerLocaleData(localeFr, 'fr');
 
