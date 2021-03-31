@@ -25,7 +25,7 @@ export class AjoutJeuxComponent implements OnInit {
   ngOnInit(): void {
 
     this.formulaire = new FormGroup({
-      nom: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]),
+      nom: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
       description: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1000)]),
       theme: new FormControl(1, Validators.required),
       editeur: new FormControl(1, Validators.required),
