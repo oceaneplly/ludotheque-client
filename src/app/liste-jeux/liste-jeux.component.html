@@ -1,4 +1,4 @@
-<div class="p-d-inline-flex">
+<div class="p-d-inline-flex" xmlns="http://www.w3.org/1999/html">
   <br>
   <p-multiSelect [options]="tableauNombre" [(ngModel)]="selectNombre" optionDisabled="inactive" defaultLabel="Choisir un nombre" optionLabel="name" (onChange)="filtrageCoursNombre()"></p-multiSelect>
   <br>
@@ -18,7 +18,6 @@
   <app-details-jeu [jeu]="jeuSelectionne"></app-details-jeu>
 </div>
 <div *ngIf="!filtrage">
-  <br>
   <br>
   <p-button label="Tri" icon="{{tri}}" (onClick)="onTri()"></p-button>
   <br>
@@ -48,7 +47,12 @@
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>
-        <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+        <div *ngIf="jeuSelectionne && jeu===jeuSelectionne">
+        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="onRowUnselect()"></button>
+        </div>
+        <div *ngIf="jeuSelectionne===undefined">
+          <button type="button" pButton pRipple icon="pi pi-search" (click)="onRowSelect(jeu)"></button>
+        </div>
       </td>
     </tr>
   </ng-template>

@@ -40,6 +40,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
 
 
 import {SplitButton, SplitButtonModule} from "primeng/splitbutton";
+import { CommentairesComponent } from './commentaires/commentaires.component';
 
 
 
@@ -58,6 +59,7 @@ registerLocaleData(localeFr, 'fr');
     AjoutJeuxComponent,
     LpSolverTestComponent,
     NewUserComponent,
+    CommentairesComponent,
   ],
   imports: [
     BrowserModule,
