@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../_services/user.service";
-import {AuthentificationService} from "../_services/authentification.service";
-import {ListeJeuxComponent} from "../liste-jeux/liste-jeux.component";
-import { DatePipe } from '@angular/common'
-import {environment} from "../../environments/environment";
+import {UserService} from '../_services/user.service';
+import {AuthentificationService} from '../_services/authentification.service';
+import {ListeJeuxComponent} from '../liste-jeux/liste-jeux.component';
+import { DatePipe } from '@angular/common';
+import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 const httpOptions = {
@@ -17,15 +17,15 @@ const httpOptions = {
 })
 export class CommentairesComponent implements OnInit {
   val1: number;
-  iduser:number;
-  idjeu:number;
-  value:string='';
+  iduser: number;
+  idjeu: number;
+  value = '';
   date: Date;
   datenum: number;
   // tslint:disable-next-line:variable-name
-  commentaire_text:string;
+  commentaire_text: string;
 
-  constructor(private http: HttpClient, public userService: UserService, public authentificationService: AuthentificationService, public  composant : ListeJeuxComponent) { }
+  constructor(private http: HttpClient, public userService: UserService, public authentificationService: AuthentificationService, public  composant: ListeJeuxComponent) { }
 
   ngOnInit(): void {
     this.val1 = 0;
@@ -35,7 +35,7 @@ export class CommentairesComponent implements OnInit {
 
 
 
-  onKey(event:any) {
+  onKey(event: any) {
     this.value = event.target.value;
     console.log(this.val1);
     console.log(this.value);

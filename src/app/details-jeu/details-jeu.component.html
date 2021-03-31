@@ -18,9 +18,16 @@
       <li>Langue : {{jeu.langue}}</li>
       <li>Âge : {{jeu.age}} ans</li>
       <li>Règles : {{jeu.regles}}</li>
-      <li>Durée : {{jeu.duree}} minutes</li>
-      <li>Mécanique : {{jeu.mecanique}}</li>
+      <li>Durée : {{jeu.duree}}</li>
+      <li>Mécanique : {{this.jeu.mecaniques.nom}}</li>
       <li>Éditeur : {{jeu.editeur_id.nom}}</li>
+      <li>Commentaires :
+        <div *ngFor="let com of this.jeu.commentaires">
+          Note : {{com.note}}
+          Auteur : {{com.user.pseudo}}
+          Message : {{com.commentaire}}
+        </div>
+      </li>
     </ul>
 
     <p-dialog header="Title" [(visible)]="display">

@@ -37,9 +37,9 @@ import { NewUserComponent } from './new-user/new-user.component';
 import {Card, CardModule} from 'primeng/card';
 import {Rating, RatingModule} from 'primeng/rating';
 import {MultiSelectModule} from 'primeng/multiselect';
-import {CommentairesComponent} from './commentaires/commentaires.component';
-import { DatePipe } from '@angular/common';
 import {SplitButton, SplitButtonModule} from 'primeng/splitbutton';
+import {CommentairesComponent} from "./commentaires/commentaires.component";
+import { DatePipe } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import {CheckboxModule} from 'primeng/checkbox';
 
