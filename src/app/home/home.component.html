@@ -1,24 +1,5 @@
 <html>
 <body>
-    <div class="image" >
-      <img class="adapt" src="fond1.png" />
-    </div>
+
 </body>
 </html>
-<script type="text/javascript" language="javascript">
-$(document).ready(function() {
-function imageResize() {
-var wrapH = $('div.image').height();
-var imgH = $('img.adapt').height();
-var wrapW = $('div.image').width();
-var imgW = $('img.adapt').width();
-$("img.adapt").css("height", (wrapH < imgH) ? wrapH : "auto");
-$("img.adapt").css("width", (wrapW < imgW) ? wrapW : "auto");
-}
-imageResize();
-$(window).bind("resize", function(){
-imageResize();
-});
-});
-
-</script>
