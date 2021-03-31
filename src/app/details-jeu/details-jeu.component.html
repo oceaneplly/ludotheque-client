@@ -24,4 +24,7 @@
       <li> Commentaires : </li>
     </ul>
   </div>
+  <div *ngIf="authService.isLoggedIn$ | async">
+  <app-commentaires></app-commentaires>
+  </div>
 </p-card>

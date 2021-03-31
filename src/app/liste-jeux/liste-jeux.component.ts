@@ -76,15 +76,8 @@ export class ListeJeuxComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onRowSelect(jeu: Jeu) {
-    if (this.jeuSelectionne === jeu) {
-      this.jeuSelectionne = undefined;
-      console.log(this.jeuSelectionne);
-    }
-    else {
       this.jeuSelectionne = jeu;
       this.scroll.scrollToPosition([0, 300]);
-      console.log(this.jeuSelectionne);
-    }
   }
 
   onTri(): void {
@@ -155,6 +148,7 @@ export class ListeJeuxComponent implements OnInit {
       this.filtrage=false;
     }
     else {
+      this.tableauJeu=[];
       this.jeux.forEach((x: Jeu) => {
         this.filtrage = true;
         if (this.contenirAge1(x.age))
@@ -168,6 +162,7 @@ export class ListeJeuxComponent implements OnInit {
       this.filtrage=false;
     }
     else {
+      this.tableauJeu=[];
       this.jeux.forEach((x: Jeu) => {
           this.filtrage = true;
           if (this.contenirTheme1(x.theme_id.nom))
@@ -175,4 +170,10 @@ export class ListeJeuxComponent implements OnInit {
         }
       );
     }}
+
+  // tslint:disable-next-line:typedef
+    onRowUnselect() {
+      // tslint:disable-next-line:no-unused-expression
+      this.jeuSelectionne = undefined;
+    }
 }
