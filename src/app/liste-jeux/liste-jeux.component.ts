@@ -114,6 +114,28 @@ export class ListeJeuxComponent implements OnInit {
     }
   }
 
+  onTri1(): void {
+    if (this.tri === 'pi pi-sort-numeric-down') {
+      console.log('coucou');
+      this.tri = 'pi pi-sort-alpha-up';
+      this.tableauJeu.sort(function(a, b) {
+        const nameA = a.nom.toUpperCase();
+        const nameB = b.nom.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+      });
+    }
+    else {
+      this.tableauJeu.sort((a, b) => a.id - b.id);
+      this.tri = 'pi pi-sort-numeric-down';
+    }
+  }
+
   contenirAge(id: any): boolean {
     let verif: boolean = false;
     this.tableauAge.forEach((x: any) => {
@@ -145,9 +167,29 @@ export class ListeJeuxComponent implements OnInit {
     return verif;
   }
 
+  contenirEditeur1(id: any): boolean {
+    let verif: boolean = false;
+    this.selectEditeur.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
   contenirNombres(id: any): boolean {
     let verif: boolean = false;
     this.tableauNombre.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
+  contenirNombres1(id: any): boolean {
+    let verif: boolean = false;
+    this.selectNombre.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
       }
@@ -165,8 +207,18 @@ export class ListeJeuxComponent implements OnInit {
     return verif;
   }
 
+  contenirTheme1(id: any): boolean {
+    let verif: boolean = false;
+    this.selectTheme.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
+
   filtrageCoursAge(): void {
-    if(this.selectAge.length==0) {
+    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
       this.filtrage=false;
     }
     else {
@@ -174,6 +226,45 @@ export class ListeJeuxComponent implements OnInit {
         this.filtrage = true;
         if (this.contenirAge1(x.age))
           this.tableauJeu.push(x);
+        }
+      );
+    }}
+
+  filtrageCoursEditeur(): void {
+    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
+      this.filtrage=false;
+    }
+    else {
+      this.jeux.forEach((x: Jeu) => {
+          this.filtrage = true;
+          if (this.contenirEditeur1(x.editeur))
+            this.tableauJeu.push(x);
+        }
+      );
+    }}
+
+  filtrageCoursNombre(): void {
+    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
+      this.filtrage=false;
+    }
+    else {
+      this.jeux.forEach((x: Jeu) => {
+          this.filtrage = true;
+          if (this.contenirNombres1(x.editeur))
+            this.tableauJeu.push(x);
+        }
+      );
+    }}
+
+  filtrageCoursTheme(): void {
+    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
+      this.filtrage=false;
+    }
+    else {
+      this.jeux.forEach((x: Jeu) => {
+          this.filtrage = true;
+          if (this.contenirTheme1(x.theme))
+            this.tableauJeu.push(x);
         }
       );
     }}
