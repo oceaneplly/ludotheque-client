@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Jeu} from "../_models/jeu";
-import {JeuService} from "../_services/jeu.service";
-import {ListeJeuxComponent} from "../liste-jeux/liste-jeux.component";
+import {ActivatedRoute} from '@angular/router';
+import {Jeu} from '../_models/jeu';
+import {JeuService} from '../_services/jeu.service';
+import {ListeJeuxComponent} from '../liste-jeux/liste-jeux.component';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Validateur} from '../Validateur';
-import {environment} from "../../environments/environment";
-import {AuthentificationService} from "../_services/authentification.service";
+import {environment} from '../../environments/environment';
+import {AuthentificationService} from '../_services/authentification.service';
 
 @Component({
   selector: 'app-details-jeu',
@@ -24,7 +24,7 @@ export class DetailsJeuComponent implements OnInit {
       }
   );
 
-  constructor(private authService: AuthentificationService) {
+  constructor(public authService: AuthentificationService) {
   }
 
   ngOnInit(): void {
@@ -36,13 +36,14 @@ export class DetailsJeuComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  ajouetAchat() {
+  ajouterAchat() {
     // @ts-ignore
-    return this.http.post<any>(`${environment.apiUrl}/auth/users/{id}/achat`, {
+    return this.http.post<any>(`${environment.apiUrl}/auth/users/${id}/achat`, {
       lieu: this.formulaire.get('lieu').value,
       date_achat: this.formulaire.get('date_achat').value,
       prix: this.formulaire.get('prix').value,
-    }, this.authService.userValue.id);
+      jeu_id: this.formulaire.get('jeu_id').value
+    });
   }
 
   // tslint:disable-next-line:typedef
