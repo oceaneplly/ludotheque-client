@@ -18,6 +18,7 @@ const httpOptions = {
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit {
+  checked:boolean;
 
   formulaire: FormGroup = new FormGroup({
     nom: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
@@ -35,7 +36,9 @@ export class NewUserComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.checked=false;
+  }
 
   // tslint:disable-next-line:typedef
   addUser(){
@@ -83,6 +86,15 @@ export class NewUserComponent implements OnInit {
 
   get password(): AbstractControl{
     return this.formulaire.get('password');
+  }
+
+  verifCheck() {
+    if (this.checked===true) {
+      this.checked = false;
+    }
+    else{
+      this.checked = true;
+    }
   }
 }
 

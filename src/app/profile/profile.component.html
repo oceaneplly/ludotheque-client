@@ -1,11 +1,12 @@
 <br>
-<h2 [style]="{textAlign:'center',fontSize:'200%',fontFamily:'Helvetica'}">Profil d'un utilisateur</h2>
+<h1 [style]="{textAlign:'center',fontSize:'200%',fontFamily:'Helvetica',color:'var(--teal-400)'}">Profil d'un utilisateur</h1>
 <div *ngIf="!loading">
-  <h2 [style]="{textAlign: 'center'}">#{{user.id}} {{user.prenom}} {{user.nom}}</h2>
-  <p>{{user.email}}</p>
+  <h2 [style]="{textAlign: 'center', fontFamily:'Helvetica',fontSize:'150%',color:'var(--teal-600)'}">{{user.prenom}} {{user.nom}}</h2>
 
-  <p>Crée : {{user.created_at | amDateFormat:'LL'}} </p>
-  <p>Modifié : {{user.updated_at | amDateFormat:'LL'}} </p>
+  <ul [style]="{marginLeft:'5%'}">
+    <li [style]="{fontFamily:'Helvetica'}">Email : {{user.email}}</li>
+    <li [style]="{fontFamily:'Helvetica'}">Pseudo : {{user.pseudo}}</li>
+  </ul>
 </div>
 
 <button pButton type="button" label="Colis postal" (click)="toColisPostal()"></button>

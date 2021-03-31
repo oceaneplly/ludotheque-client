@@ -50,11 +50,10 @@ export class ListeJeuxComponent implements OnInit {
       this.jeux = res;
       console.log(res);
       res.forEach((x: Jeu) => {
-
         if (x.nombre_joueurs !== undefined && !this.contenirNombres(x.nombre_joueurs)){
           this.tableauNombre.push({name: x.nombre_joueurs, code: x.nombre_joueurs});
         }
-        if (x.age !== undefined && !this.contenirAge(x.age)){
+        if (x.age !== undefined && !this.contenirAge(x.age)) {
           this.tableauAge.push({name: x.age, code: x.age});
         }
 

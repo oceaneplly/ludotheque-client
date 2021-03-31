@@ -50,14 +50,14 @@
         <label for="confirmMdp" [style]="{fontSize:'150%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Vérification</label>
         <input id="confirmMdp" type="password" pInputText class="form-control" formControlName="confirmMdp" placeholder="Vérification mot de passe">
         <div [style]="{fontFamily:'Helvetica',marginTop:'1%'}" *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doivent être identiques </div>
-        <div *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doivent être identiques </div>
       </div>
 
     </div>
   </div>
   <div class="form-group">
-    <label for="rgpd" >Êtes vous certains de vouloir créer un nouvel utilisateur (RGPD) ?</label>
-    <input id="rgpd" type="checkbox" pInputText class="form-control" formControlName="rgpd" >
+    <label for="rgpd" [style]="{fontSize:'100%',fontFamily:'Helvetica'}" >En tant qu'hébergeur de données personnelles d'utilisateur, notre compagnie souhaite recueillir votre consentement sur le stockage et l'usage de vos données lors de l'inscription dans le cadre du RGPB  </label>
+    <input id="rgpd" type="checkbox" class="form-control" formControlName="rgpd" value="Rgpd">
   </div>
-  <button pButton [disabled]="!formulaire.valid" type="submit" label="Créer" routerLink="/login" class="p-button-outlined" (click)="addUser()"></button>
+  <br>
+  <button pButton [style]="{backgroundColor:'var(--teal-100)',color:'black', border:'black',marginLeft:'50%'}" [disabled]="!formulaire.valid" type="submit" label="Créer" routerLink="/login" class="p-button-outlined" (click)="addUser()"></button>
 </form>

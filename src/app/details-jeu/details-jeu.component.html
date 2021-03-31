@@ -1,12 +1,13 @@
+<br>
 <p-card header="{{jeu.nom}}" class="p-mr-4 p-mb-4">
   <div class="row">
-  <div class="p-col-3">
-    <i class="pi pi-user icon"></i>
-    <span> {{jeu.nombre_joueurs}} joueurs</span>
-  </div>
-  <div class="p-col-3">
-    <span>Thème : {{jeu.theme_id.nom}}</span>
-  </div>
+    <div class="p-col-3">
+      <i class="pi pi-user icon"></i>
+      <span> {{jeu.nombre_joueurs}} joueurs</span>
+    </div>
+    <div class="p-col-3">
+      <!--   <span>Thème : {{jeu.theme_id.nom}}</span> -->
+    </div>
     <div class="p-col-3">
       <span>Poids : {{jeu.poids}} kg</span>
     </div>
@@ -21,20 +22,20 @@
       <li>Durée : {{jeu.duree}}</li>
       <li>Mécanique :
         <div *ngFor="let meca of jeu.mecaniques">
-          <p>{{meca.nom}}</p>
-        </div>
-      </li>
-      <li>Éditeur : {{jeu.editeur_id.nom}}</li>
-      <li>Commentaires :
-<!--        <div *ngFor="let com of jeu.commentaires">-->
-<!--          Note : {{com.note}}-->
-<!--          Auteur : {{com.user.pseudo}}-->
-<!--          Message : {{com.commentaire}}-->
-<!--        </div>-->
+          <!--      <p>{{meca.nom}}</p> -->
+           </div>
+         </li>
+      <!--    <li>Éditeur : {{jeu.editeur_id.nom}}</li> -->
+       <li>Commentaires :
+         <!--        <div *ngFor="let com of jeu.commentaires">-->
+        <!--          Note : {{com.note}}-->
+        <!--          Auteur : {{com.user.pseudo}}-->
+        <!--          Message : {{com.commentaire}}-->
+        <!--        </div>-->
       </li>
     </ul>
 
-    <p-dialog header="Title" [(visible)]="display">
+    <p-dialog header="Acheter un jeu" [(visible)]="display">
       <form [formGroup]="formulaire" >
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col">
@@ -47,7 +48,7 @@
         <div class="p-fluid p-formgrid p-grid">
           <div class="p-field p-col">
             <label for="date_achat" >Date d'achat</label>
-            <input id="date_achat" type="date" pInputText class="form-control" formControlName="date_achat" placeholder="date_achat">
+            <input id="date_achat" type="Date" pInputText class="form-control" formControlName="date_achat" placeholder="date_achat">
             <div *ngIf="date_achat?.errors?.required" style="color:crimson">La date est obligatoire</div>
             <div *ngIf="date_achat?.errors?.minlength"  style="color:crimson">La date doit être du type JJ/MM/AA</div>
           </div>
@@ -60,14 +61,14 @@
             <div *ngIf="prix?.errors?.minlength"  style="color:crimson">Le prix doit étre positif</div>
           </div>
         </div>
-        <button type="button" pButton pRipple icon="pi pi-wallet" (click)="ajouterAchat()" label="Acheter"></button>
+        <button [style]="{backgroundColor:'var(--teal-400)',border:'var(--teal-400)',color:'black',marginLeft:'35%'}" type="button" pButton pRipple icon="pi pi-wallet" (click)="ajouterAchat()" label="Acheter"></button>
       </form>
     </p-dialog>
 
-    <button type="button" pButton pRipple icon="pi pi-wallet" (click)="showDialog()" label="Acheter"></button>
+    <button type="button" [style]="{backgroundColor:'var(--teal-400)',border:'var(--teal-400)',color:'black',marginLeft:'50%'}" pButton pRipple icon="pi pi-wallet" (click)="showDialog()" label="Acheter"></button>
   </div>
   <div *ngIf="authService.isLoggedIn$ | async">
-  <app-commentaires></app-commentaires>
+    <app-commentaires></app-commentaires>
   </div>
 </p-card>
 
