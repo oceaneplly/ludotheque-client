@@ -1,7 +1,7 @@
 <br>
 <div class="p-d-inline-flex" xmlns="http://www.w3.org/1999/html" [style]="{marginLeft:'35%'}">
   <br>
-  <p-multiSelect [options]="tableauTheme" [(ngModel)]="selectTheme" [style]="{padding:'5px',margin:'10px'}" optionDisabled="inactive" defaultLabel="Choisir un thème" optionLabel="name" (onChange)="filtrageCoursTheme()"></p-multiSelect>
+  <p-multiSelect [options]="tableauNombre" [(ngModel)]="selectNombre" [style]="{padding:'5px',margin:'10px'}" optionDisabled="inactive" defaultLabel="Choisir un nombre" optionLabel="name" (onChange)="filtrageCoursNombre()"></p-multiSelect>
   <br>
   <p-multiSelect [options]="tableauAge" [style]="{padding:'5px',margin:'10px'}" [(ngModel)]="selectAge" optionDisabled="inactive" defaultLabel="Choisir un âge" optionLabel="name" (onChange)="filtrageCoursAge()"></p-multiSelect>
   <br>
@@ -25,6 +25,7 @@
       <th>Photo</th>
       <th>Description</th>
       <th>Thème</th>
+      <th>Nombre de joueurs</th>
       <th>Âge</th>
       <th>Durée</th>
       <th>Details</th>
@@ -39,6 +40,7 @@
       </td>
       <td>{{jeu.description}}</td>
       <td>{{jeu.theme_id.nom}}</td>
+      <td>{{jeu.nombre_joueurs}} joueurs</td>
 
       <td>
         <div>
@@ -67,6 +69,7 @@
       <th>Photo</th>
       <th>Description</th>
       <th>Thème</th>
+      <th>Nombre de joueurs</th>
       <th>Âge</th>
       <th>Durée</th>
       <th>Details</th>
@@ -81,6 +84,7 @@
       </td>
       <td>{{jeu.description}}</td>
       <td>{{jeu.theme_id.nom}}</td>
+      <td>{{jeu.nombre_joueurs}}</td>
       <td>{{jeu.age}} ans ou +</td>
       <td>{{jeu.duree}}</td>
       <td>

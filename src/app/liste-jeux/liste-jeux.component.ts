@@ -36,10 +36,6 @@ export class ListeJeuxComponent implements OnInit {
 
   tableauNombre = [];
   selectNombre = [];
-  tableauTheme = [];
-  selectTheme = [];
-  tableauEditeur = [];
-  selectEditeur = [];
   tableauAge = [];
   selectAge = [];
 
@@ -55,8 +51,8 @@ export class ListeJeuxComponent implements OnInit {
       console.log(res);
       res.forEach((x: Jeu) => {
 
-        if (x.theme_id.nom !== undefined && !this.contenirTheme(x.theme_id.nom)){
-          this.tableauTheme.push({name: x.theme_id.nom, code: x.theme_id.nom});
+        if (x.nombre_joueurs !== undefined && !this.contenirNombres(x.nombre_joueurs)){
+          this.tableauNombre.push({name: x.nombre_joueurs, code: x.nombre_joueurs});
         }
         if (x.age !== undefined && !this.contenirAge(x.age)){
           this.tableauAge.push({name: x.age, code: x.age});
@@ -121,9 +117,9 @@ export class ListeJeuxComponent implements OnInit {
     return verif;
   }
 
-  contenirTheme(id: any): boolean {
+  contenirNombres(id: any): boolean {
     let verif = false;
-    this.tableauTheme.forEach((x: any) => {
+    this.tableauNombre.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
       }
@@ -131,9 +127,9 @@ export class ListeJeuxComponent implements OnInit {
     return verif;
   }
 
-  contenirTheme1(id: any): boolean {
+  contenirNombres1(id: any): boolean {
     let verif = false;
-    this.selectTheme.forEach((x: any) => {
+    this.selectNombre.forEach((x: any) => {
       if (x.name === id) {
         verif = true;
       }
@@ -142,7 +138,7 @@ export class ListeJeuxComponent implements OnInit {
   }
 
   filtrageCoursAge(): void {
-    if (this.selectAge.length == 0 && this.selectTheme.length == 0 && this.selectNombre.length == 0 && this.selectEditeur.length == 0) {
+    if (this.selectAge.length == 0 && this.selectNombre.length == 0) {
       this.filtrage = false;
     }
     else {
@@ -156,15 +152,15 @@ export class ListeJeuxComponent implements OnInit {
       );
     }}
 
-  filtrageCoursTheme(): void {
-    if (this.selectAge.length == 0 && this.selectTheme.length == 0) {
+  filtrageCoursNombre(): void {
+    if (this.selectAge.length == 0 && this.selectNombre.length == 0) {
       this.filtrage = false;
     }
     else {
       this.tableauJeu = [];
       this.jeux.forEach((x: Jeu) => {
           this.filtrage = true;
-          if (this.contenirTheme1(x.theme_id.nom)) {
+          if (this.contenirNombres1(x.nombre_joueurs)) {
             this.tableauJeu.push(x);
           }
         }
