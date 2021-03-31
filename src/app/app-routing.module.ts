@@ -10,6 +10,7 @@ import {DetailsJeuComponent} from './details-jeu/details-jeu.component';
 import {AjoutJeuxComponent} from './ajout-jeux/ajout-jeux.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'jeux', component: ListeJeuxComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'ajoutJeu', component: AjoutJeuxComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'new_user', component: NewUserComponent},
+  {path: 'new-user', component: NewUserComponent},
   {path: 'ro', component: LpSolverTestComponent},
   {path: '**', component: HomeComponent},
 

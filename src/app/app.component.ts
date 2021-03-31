@@ -40,7 +40,7 @@ export class AppComponent implements OnInit{
       {
         label: 'S\'enregistrer',
         icon: 'pi pi-user-plus',
-        routerLink: '/register',
+        routerLink: '/new-user',
         routerLinkActiveOptions: { exact: true }
       },
     ];
@@ -106,3 +106,4 @@ export class AppComponent implements OnInit{
     return this.isLogin;
   }
 }
+

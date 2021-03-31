@@ -50,5 +50,10 @@
     </div>
   </div>
 
-  <button pButton type="submit" label="Créer" class="p-button-outlined" (click)="addUser(nom, prenom, pseudonyme, mail, mdp)"></button>
+  <button pButton [disabled]="!formulaire.valid" type="submit" label="Créer" class="p-button-outlined" (click)="addUser(nom, prenom, pseudonyme, mail, mdp)"></button>
 </form>
+
+
+
+
+

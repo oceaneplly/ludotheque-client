@@ -37,9 +37,15 @@ export class NewUserComponent implements OnInit {
   ngOnInit(): void {}
 
   // tslint:disable-next-line:typedef
-  addUser(nom: AbstractControl, prenom: AbstractControl, pseudonyme: AbstractControl, mail: AbstractControl, mdp: AbstractControl){
+  addUser(nom: AbstractControl, prenom: AbstractControl, pseudo: AbstractControl, email: AbstractControl, password: AbstractControl){
     // @ts-ignore
-    return this.http.post<any>(`${environment.apiUrl}/auth/register`).subscribe(data => {
+    return this.http.post<any>(`${environment.apiUrl}/auth/register`, {
+      nom : 'nom',
+      prenom : 'prenom',
+      pseudo : 'pseudo',
+      email : 'email',
+      password : 'password'
+    }, httpOptions).subscribe(data => {
       console.log(data);
     });
   }
