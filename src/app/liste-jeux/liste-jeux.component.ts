@@ -4,7 +4,7 @@ import {Jeu} from '../_models/jeu';
 // import {JeuxService} from '../jeux.service';
 import {Observable} from 'rxjs';
 import {JeuService} from '../_services/jeu.service';
-import {ViewportScroller} from "@angular/common";
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-liste-jeux',
