@@ -12,8 +12,23 @@ import {ViewportScroller} from '@angular/common';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  // tslint:disable-next-line:max-line-length
-  jeu: Jeu = {id: 0, nombrejoueurs: 0, note: 0, mecanique: '', editeur: '', age: 0, url: '', categorie: '', description: '', duree: '', langue: '', nom: '', poids: 0, regles: '', theme: ''};
+  jeu: Jeu = {
+    id: 0,
+    nombrejoueurs: 0,
+    note: 0,
+    mecanique: '',
+    editeur: '',
+    age: 0,
+    url: '',
+    categorie: '',
+    description: '',
+    duree: '',
+    langue: '',
+    nom: '',
+    poids: 0,
+    regles: '',
+    theme: ''
+  };
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
   tri: string;
@@ -36,7 +51,7 @@ export class ListeJeuxComponent implements OnInit {
       // @ts-ignore
       this.jeux = res;
       console.log(res);
-      res.forEach((x: Jeu) => {
+      res.forEach((x : Jeu) => {
         if (x.nombrejoueurs !== undefined) {
           this.tableauNombre.push(x.nombrejoueurs);
         }
@@ -45,6 +60,10 @@ export class ListeJeuxComponent implements OnInit {
         }
         if (x.editeur !== undefined) {
           this.tableauEditeur.push(x.editeur);
+        }
+        if (x.age !== undefined && !this.contenirAge(x.age)){
+          this.tableauAge.push({name: x.age, code: x.age});
+          console.log(x.age);
         }
 
       });
@@ -74,12 +93,15 @@ export class ListeJeuxComponent implements OnInit {
     if (this.tri === 'pi pi-sort-numeric-down') {
       console.log('coucou');
       this.tri = 'pi pi-sort-alpha-up';
-      // tslint:disable-next-line:only-arrow-functions typedef
-      this.jeux.sort(function(a, b){
+      this.jeux.sort(function(a, b) {
         const nameA = a.nom.toUpperCase();
         const nameB = b.nom.toUpperCase();
-        if (nameA < nameB) { return -1; }
-        if (nameA > nameB) { return 1; }
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
 
       });
     }
@@ -89,5 +111,13 @@ export class ListeJeuxComponent implements OnInit {
     }
   }
 
-
+  contenirAge(id: any): boolean {
+    let verif: boolean = false;
+    this.tableauAge.forEach((x: any) => {
+      if (x.name === id) {
+        verif = true;
+      }
+    });
+    return verif;
+  }
 }
