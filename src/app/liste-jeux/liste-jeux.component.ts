@@ -4,6 +4,7 @@ import {Jeu} from '../_models/jeu';
 // import {JeuxService} from '../jeux.service';
 import {Observable} from 'rxjs';
 import {JeuService} from '../_services/jeu.service';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-liste-jeux',
@@ -26,7 +27,7 @@ export class ListeJeuxComponent implements OnInit {
   tableauAge = [];
   selectAge = [];
 
-  constructor(public jeuxService: JeuService) {
+  constructor(public jeuxService: JeuService, private scroll: ViewportScroller) {
   }
 
   // tslint:disable-next-line:typedef
@@ -64,6 +65,7 @@ export class ListeJeuxComponent implements OnInit {
     }
     else {
       this.jeuSelectionne = jeu;
+      this.scroll.scrollToPosition([0, 300]);
       console.log(this.jeuSelectionne);
     }
   }
