@@ -65,9 +65,26 @@ export class  JeuService{
       );
   }
 
-  ajoutJeu(jeu: { categorie: string; poids: number; description: string; langue: string; nom: string; url: string; regles: string; editeur: string; mecanique: string; duree: string; theme: string; id: number; age: number }): Observable<Jeu> {
+  ajoutJeu(jeu: Jeu): Observable<Jeu> {
     return this.http.post<any>(environment.apiUrl + '/jeux',
-      jeu, httpOptions);
+      {
+        nom : jeu.nom,
+        description : jeu.description,
+        theme : jeu.theme,
+        editeur : jeu.editeur,
+        mecanique : jeu.mecanique,
+        url : jeu.url,
+        categorie : jeu.categorie,
+        regle : jeu.regles,
+        langue : jeu.langue,
+        nombrejoueurs : jeu.nombrejoueurs,
+        age : jeu.age,
+        poids : jeu.poids,
+        duree : jeu.duree
+
+
+
+      }, httpOptions);
   }
 
 
