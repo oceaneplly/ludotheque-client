@@ -1,8 +1,10 @@
-import {Theme} from "./theme";
+import {Theme} from './theme';
+import {Editeur} from './editeur';
+import {Mecanique} from "./mecanique";
 
 export interface Jeu {
   id: number;
-  mecanique: string;
+  mecanique: Mecanique;
   nom: string;
   url: string;
   description: string;
@@ -13,7 +15,7 @@ export interface Jeu {
   categorie: string;
   duree: string;
   regles: string;
-  editeur: string;
+  editeur: Editeur;
   note: number;
   nombrejoueurs: number;
 }

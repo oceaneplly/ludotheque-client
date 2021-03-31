@@ -16,8 +16,8 @@ export class ListeJeuxComponent implements OnInit {
     id: 0,
     nombrejoueurs: 0,
     note: 0,
-    mecanique: '',
-    editeur: '',
+    mecanique: undefined,
+    editeur: undefined,
     age: 0,
     url: '',
     categorie: '',
@@ -77,7 +77,7 @@ export class ListeJeuxComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onRowSelect(jeu: Jeu) {
       this.jeuSelectionne = jeu;
-      this.scroll.scrollToPosition([0, 300]);
+      this.scroll.scrollToPosition([0, 100]);
   }
 
   onTri(): void {
