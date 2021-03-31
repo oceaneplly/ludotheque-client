@@ -56,9 +56,9 @@ export class ListeJeuxComponent implements OnInit {
       console.log(res);
       res.forEach((x: Jeu) => {
 
-        if (x.theme_id.nom !== undefined && !this.contenirTheme(x.theme_id.nom)){
-          this.tableauTheme.push({name: x.theme_id.nom, code: x.theme_id.nom});
-        }
+        // if (x.theme_id.nom !== undefined && !this.contenirTheme(x.theme_id.nom)){
+        //   this.tableauTheme.push({name: x.theme_id.nom, code: x.theme_id.nom});
+        // }
         if (x.age !== undefined && !this.contenirAge(x.age)){
           this.tableauAge.push({name: x.age, code: x.age});
         }
@@ -165,9 +165,9 @@ export class ListeJeuxComponent implements OnInit {
       this.tableauJeu = [];
       this.jeux.forEach((x: Jeu) => {
           this.filtrage = true;
-          if (this.contenirTheme1(x.theme_id.nom)) {
-            this.tableauJeu.push(x);
-          }
+          // if (this.contenirTheme1(x.theme_id.nom)) {
+          //   this.tableauJeu.push(x);
+          // }
         }
       );
     }}

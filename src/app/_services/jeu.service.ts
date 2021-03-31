@@ -67,12 +67,14 @@ export class  JeuService{
   }
 
   ajoutJeu(jeu: Jeu): Observable<Jeu> {
+    console.log(jeu.editeur_id);
+    console.log(jeu.theme_id);
     return this.http.post<any>(environment.apiUrl + '/jeux',
       {
         nom : jeu.nom,
         description : jeu.description,
         theme : jeu.theme_id,
-        editeur_id : jeu.editeur_id,
+        editeur : jeu.editeur_id,
         mecaniques : jeu.mecaniques,
         url : jeu.url,
         categorie : jeu.categorie,
@@ -82,10 +84,12 @@ export class  JeuService{
         age : jeu.age,
         poids : jeu.poids,
         duree : jeu.duree
-
-
-
-      }, httpOptions);
+      }, httpOptions).pipe(
+      catchError(err => {
+        console.log(err);
+        return throwError('bug');
+        // return of('');
+      }));
   }
 
 

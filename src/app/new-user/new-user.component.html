@@ -40,24 +40,18 @@
         <input id="mdp" type="password" pInputText class="form-control" formControlName="mdp" placeholder="Mot de passe">
         <div *ngIf="mdp?.errors?.required" style="color:crimson">Le mot de passe est obligatoire</div>
         <div *ngIf="mdp?.errors?.pattern" style="color:crimson">Le mot de passe doit être composé d'au moins 8 caractères et d'au moins d'une majuscule et d'un nombre </div>
-        <div *ngIf="mdp.invalid && mdp.touched" style="color:crimson">Les mots de passe doit être identiques </div>
+        <div *ngIf="mdp.invalid && mdp.touched" style="color:crimson">Les mots de passe doivent être identiques </div>
 
       </div>
       <div class="p-field p-col">
         <label for="confirmMdp" >Vérification</label>
         <input id="confirmMdp" type="password" pInputText class="form-control" formControlName="confirmMdp" placeholder="Vérification mot de passe">
-        <div *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doit être identiques </div>
+        <div *ngIf="password.invalid && password.touched" style="color:crimson">Les mots de passe doivent être identiques </div>
       </div>
-
-      <div class="p-field p-col">
-        <label for="rgpd">TEST RGPD</label>
-        <input id="rgpd" type="checkbox">
-      </div>
-
     </div>
   </div>
   <div class="form-group">
-    <label for="rgpd" >Etes vous alright ?</label>
+    <label for="rgpd" >Êtes vous certains de vouloir créer un nouvel utilisateur (RGPD) ?</label>
     <input id="rgpd" type="checkbox" pInputText class="form-control" formControlName="rgpd" >
   </div>
   <button pButton [disabled]="!formulaire.valid" type="submit" label="Créer" routerLink="/login" class="p-button-outlined" (click)="addUser()"></button>

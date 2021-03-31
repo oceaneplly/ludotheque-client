@@ -23,8 +23,8 @@
 
     <div class="p-fluid p-formgrid p-grid">
       <div class="p-field p-col">
-        <label for="theme">Thème</label>
-        <select id="theme" formControlName="theme"  >
+        <label for="theme_id">Thème</label>
+        <select id="theme_id" formControlName="theme"  >
           <option *ngFor="let theme of themes" [value]="theme.id" >{{ theme.nom }}</option>
         </select>
         <div *ngIf="formulaire.get('theme')?.errors?.required && formulaire.get('theme').touched" style="color:crimson">Le thème est obligatoire</div>
@@ -118,7 +118,7 @@
 
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-4">
-          <label for="duree">duree</label>
+          <label for="duree">Durée</label>
           <input id="duree" type="number" pInputText formControlName="duree">
           <div *ngIf="formulaire.get('duree').invalid && formulaire.get('duree').touched" class="card-panel red accent-1">
             Veuillez saisir une valeur entre 5 et 300

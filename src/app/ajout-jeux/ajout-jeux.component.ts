@@ -91,13 +91,11 @@ export class AjoutJeuxComponent implements OnInit {
     this.jeu = {
       ...this.jeu, ...this.formulaire.value
     };
+    this.jeu.theme_id = +this.formulaire.get('theme').value;
+    this.jeu.editeur_id = +this.formulaire.get('editeur').value;
     console.log('jeu ', this.jeu);
     this.jeuService.ajoutJeu(this.jeu).subscribe(res => {
       console.log(res);
     });
-
-
-
-
   }
 }
