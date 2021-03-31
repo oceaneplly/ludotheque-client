@@ -1,6 +1,20 @@
-<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
-  Email : <input type="text" formControlName="email"><br>
-  Mot de passe : <input type="password" formControlName="password"><br>
-  <button [disabled]="!formulaire.valid">Valide</button>
-</form>
+<br>
+<h1 [style]="{fontSize:'200%',textAlign:'center',color:'var(--teal-400)',fontFamily:'Helvetica'}">Bienvenue dans l'espace de connexion</h1>
+<br>
+<div  class="p-fluid" [formGroup]="formulaire">
+  <div class="p-field p-grid">
+    <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0" for="email" [style]="{fontSize:'200%',fontFamily:'Helvetica', color:'var(--teal-400)'}">Email</label>
+    <div class="p-col-12 p-md-10">
+    <input id="email" type="text" formControlName="email" pInputText>
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label class="p-col-12 p-mb-2 p-md-2 p-mb-md-0" for="password" [style]="{fontSize:'200%',fontFamily:'Helvetica',color:'var(--teal-400)'}">Mot de passe</label>
+    <div class="p-col-12 p-md-10">
+    <input id="password" type="password" formControlName="password" pInputText>
+    </div>
+  </div>
+  <button (click)="onSubmit()" [style]="{marginLeft:'50%',border:'var(--teal-400)',color:'black',backgroundColor:'var(--teal-100)'}" [disabled]="!formulaire.valid" pButton type="button" icon="pi pi-check" iconPos="left"></button>
+</div>
+
 

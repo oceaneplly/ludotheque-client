@@ -1,15 +1,15 @@
 .kid {
-  background-color: #ACC6A5!important;
+  background-color: var(--teal-100)!important;
+  color:black!important;
 }
 
 .ado {
-  background-color: #EBC790 !important;
+  background-color: var(--teal-200)!important;
+  color:black!important;
 }
 
 .adult {
-  background-color: #DD8080!important;
+  background-color: var(--teal-300)!important;
+  color:black!important;
 }
 
-.p-d-inline-flex {
-  text-align: center !important;
-}
