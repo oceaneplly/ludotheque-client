@@ -6,7 +6,7 @@ export interface Jeu {
   nom: string;
   url: string;
   description: string;
-  theme: Theme;
+  theme_id: Theme;
   langue: string;
   age: number;
   poids: number;

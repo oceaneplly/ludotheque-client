@@ -71,7 +71,7 @@ export class  JeuService{
       {
         nom : jeu.nom,
         description : jeu.description,
-        theme : jeu.theme,
+        theme : jeu.theme_id,
         editeur : jeu.editeur,
         mecanique : jeu.mecanique,
         url : jeu.url,

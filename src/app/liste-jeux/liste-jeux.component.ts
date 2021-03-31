@@ -27,7 +27,7 @@ export class ListeJeuxComponent implements OnInit {
     nom: '',
     poids: 0,
     regles: '',
-    theme: null
+    theme_id: undefined
   };
   jeux: Array<Jeu>;
   jeuSelectionne: Jeu;
@@ -54,14 +54,9 @@ export class ListeJeuxComponent implements OnInit {
       this.jeux = res;
       console.log(res);
       res.forEach((x: Jeu) => {
-        if (x.nombrejoueurs !== undefined && !this.contenirNombres(x.nombrejoueurs)){
-          this.tableauNombre.push({name: x.nombrejoueurs, code: x.nombrejoueurs});
-        }
-        if (x.theme !== undefined && !this.contenirTheme(x.theme)){
-          this.tableauTheme.push({name: x.theme, code: x.theme});
-        }
-        if (x.editeur !== undefined && !this.contenirEditeur(x.editeur)){
-          this.tableauEditeur.push({name: x.editeur, code: x.editeur});
+        console.log(x.theme_id.nom);
+        if (x.theme_id.nom !== undefined && !this.contenirTheme(x.theme_id.nom)){
+          this.tableauTheme.push({name: x.theme_id.nom, code: x.theme_id.nom});
         }
         if (x.age !== undefined && !this.contenirAge(x.age)){
           this.tableauAge.push({name: x.age, code: x.age});
@@ -114,28 +109,6 @@ export class ListeJeuxComponent implements OnInit {
     }
   }
 
-  onTri1(): void {
-    if (this.tri === 'pi pi-sort-numeric-down') {
-      console.log('coucou');
-      this.tri = 'pi pi-sort-alpha-up';
-      this.tableauJeu.sort(function(a, b) {
-        const nameA = a.nom.toUpperCase();
-        const nameB = b.nom.toUpperCase();
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-      });
-    }
-    else {
-      this.tableauJeu.sort((a, b) => a.id - b.id);
-      this.tri = 'pi pi-sort-numeric-down';
-    }
-  }
-
   contenirAge(id: any): boolean {
     let verif: boolean = false;
     this.tableauAge.forEach((x: any) => {
@@ -151,46 +124,6 @@ export class ListeJeuxComponent implements OnInit {
     this.selectAge.forEach((x: any) => {
       if (x.name === id) {
         console.log(this.selectAge);
-        verif = true;
-      }
-    });
-    return verif;
-  }
-
-  contenirEditeur(id: any): boolean {
-    let verif: boolean = false;
-    this.tableauEditeur.forEach((x: any) => {
-      if (x.name === id) {
-        verif = true;
-      }
-    });
-    return verif;
-  }
-
-  contenirEditeur1(id: any): boolean {
-    let verif: boolean = false;
-    this.selectEditeur.forEach((x: any) => {
-      if (x.name === id) {
-        verif = true;
-      }
-    });
-    return verif;
-  }
-
-  contenirNombres(id: any): boolean {
-    let verif: boolean = false;
-    this.tableauNombre.forEach((x: any) => {
-      if (x.name === id) {
-        verif = true;
-      }
-    });
-    return verif;
-  }
-
-  contenirNombres1(id: any): boolean {
-    let verif: boolean = false;
-    this.selectNombre.forEach((x: any) => {
-      if (x.name === id) {
         verif = true;
       }
     });
@@ -230,40 +163,14 @@ export class ListeJeuxComponent implements OnInit {
       );
     }}
 
-  filtrageCoursEditeur(): void {
-    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
-      this.filtrage=false;
-    }
-    else {
-      this.jeux.forEach((x: Jeu) => {
-          this.filtrage = true;
-          if (this.contenirEditeur1(x.editeur))
-            this.tableauJeu.push(x);
-        }
-      );
-    }}
-
-  filtrageCoursNombre(): void {
-    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
-      this.filtrage=false;
-    }
-    else {
-      this.jeux.forEach((x: Jeu) => {
-          this.filtrage = true;
-          if (this.contenirNombres1(x.editeur))
-            this.tableauJeu.push(x);
-        }
-      );
-    }}
-
   filtrageCoursTheme(): void {
-    if(this.selectAge.length==0 && this.selectTheme.length==0 && this.selectNombre.length==0 && this.selectEditeur.length==0) {
+    if(this.selectAge.length==0 && this.selectTheme.length==0) {
       this.filtrage=false;
     }
     else {
       this.jeux.forEach((x: Jeu) => {
           this.filtrage = true;
-          if (this.contenirTheme1(x.theme))
+          if (this.contenirTheme1(x.theme_id.nom))
             this.tableauJeu.push(x);
         }
       );
